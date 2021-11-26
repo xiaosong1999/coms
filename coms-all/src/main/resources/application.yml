@@ -1,0 +1,10 @@
+upload:
+  filePath: uploadfiles/
+spring:
+  profiles:
+    active: db,wx,admin
+  messages:
+    encoding: UTF-8
+
+server:
+  port: 9090

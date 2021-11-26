@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+<title>登录页面 - COMS后台管理系统</title>
+<link rel="icon" th:href="@{favicon.ico}" type="image/ico">
+<meta name="keywords" content="登录页面 - COMS后台管理系统">
+<meta name="description" content="登录页面 - COMS后台管理系统">
+<meta name="author" content="yinqi">
+<link rel="stylesheet" href="https://www.jq22.com/jquery/bootstrap-3.3.4.css">
+<link th:href="@{/css/materialdesignicons.min.css}" rel="stylesheet">
+<link th:href="@{/css/style.min.css}" rel="stylesheet">
+<link th:href="@{/css/main_div.css}" rel="stylesheet">
+<style>
+.lyear-wrapper {
+    position: relative;
+}
+.lyear-login {
+    display: flex !important;
+    min-height: 100vh;
+    align-items: center !important;
+    justify-content: center !important;
+}
+.login-center {
+    background: #fff;
+    min-width: 38.25rem;
+    padding: 2.14286em 3.57143em;
+    border-radius: 5px;
+    margin: 2.85714em 0;
+}
+#loading{position:fixed;top:48%;left:48%;z-index:99999;}
+.login-header {
+    margin-bottom: 1.5rem !important;
+}
+.login-center .has-feedback.feedback-left .form-control {
+    padding-left: 38px;
+    padding-right: 12px;
+}
+.login-center .has-feedback.feedback-left .form-control-feedback {
+    left: 0;
+    right: auto;
+    width: 38px;
+    height: 38px;
+    line-height: 38px;
+    z-index: 4;
+    color: #dcdcdc;
+}
+.login-center .has-feedback.feedback-left.row .form-control-feedback {
+    left: 15px;
+}
+.first:hover{
+  cursor: pointer;
+}
+.then:hover{
+  cursor: wait;
+}
+
+</style>
+</head>
+  
+<body>
+<div class="row lyear-wrapper lyear-layout-sidebar-scroll raw" id="main_div">
+  <div class="lyear-login">
+    <div class="login-center">
+      <div class="login-header text-center">
+        <img alt="light year admin" th:src="@{/images/logo-sidebar.png}">
+      </div>
+      <form id="form" action="#" method="post">
+        <div class="form-group has-feedback feedback-left">
+          <input type="text" placeholder="请输入您的用户名" class="form-control" value="" name="username" id="username" />
+          <span class="mdi mdi-account form-control-feedback" aria-hidden="true"></span>
+        </div>
+        <div class="form-group has-feedback feedback-left">
+          <input type="password" placeholder="请输入密码" class="form-control" value="" id="password" name="password" />
+          <span class="mdi mdi-lock form-control-feedback" aria-hidden="true"></span>
+        </div>
+       <!-- <div class="form-group has-feedback feedback-left row">
+          <div class="col-xs-7">
+            <input type="text" name="captcha" class="form-control" placeholder="验证码">
+            <span class="mdi mdi-check-all form-control-feedback" aria-hidden="true"></span>
+          </div>
+          <div class="col-xs-5">
+            <img src="images/captcha.png" class="pull-right" id="captcha" style="cursor: pointer;" onclick="this.src=this.src+'?d='+Math.random();" title="点击刷新" alt="captcha">
+          </div>
+        </div>-->
+
+        <div class="form-group">
+          <input class="btn btn-block btn-primary first" data-loading-text="登录中..." id="btn_login" type="button" value="登录"  autocomplete="off"/>
+        </div>
+      </form>
+      <hr>
+      <footer class="col-sm-12 text-center">
+        <p class="copyright">Copyright &copy; 2021 by <br>天津市大学软件学院后勤部<br> All rights reserved. </p>
+      </footer>
+    </div>
+  </div>
+</div>
+<script src="https://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+<script src="https://www.jq22.com/jquery/bootstrap-3.3.4.js"></script>
+<script type="text/javascript" th:src="@{/js/perfect-scrollbar.min.js}"></script>
+<!--消息提示-->
+<script th:src="@{/js/bootstrap-notify.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/lightyear.js}"></script>
+<script type="text/javascript" th:src="@{/js/main.min.js}"></script>
+
+<script th:inline="javascript">
+
+  $(function(){
+
+    $('#main_div').addClass("fadein");
+
+    setTimeout(() => {
+      $('#main_div').removeClass("raw");
+      $('#main_div').removeClass("fadein");
+    }, reflushTime);
+    $("#btn_login").click(function(){
+      if($("#username").val()==""||$("#password").val()==""){
+        setTimeout(function() {
+          lightyear.notify('账号或密码不能为空~', 'danger', reflushTime);
+        }, 1e2)
+        return false;
+      }
+
+      var $btn = $(this).button('loading');
+
+      // 假设ajax提交操作
+      $.ajax({
+        type: "POST",//方法类型
+        dataType: "json",//服务器返回的数据类型
+        url: "/admin/auth/login" ,//控制器url
+        data: $('#form').serialize(),
+        success: function (result) {
+          console.log(result);//测试是否有数据
+          if (result.errno == 0) {//200正确
+            $('#main_div').addClass("fadeout");
+            $btn.button("reset")
+            setTimeout(() => {
+              window.location.href = '/admin/auth/index';//成功后跳转到某界面
+            }, 300);
+          }else{
+            setTimeout(function() {
+              lightyear.notify('账号或密码错误，请重新尝试~', 'danger', 100);
+            }, 1e3)
+            $btn.button("reset");
+
+            // $("#errmsg").text(result.errmsg);
+          }
+          ;
+        },
+        error : function(err) {
+          // console.log("err"+err);//测试是否有数据
+          // $("#errmsg").text(err.errmsg);
+          setTimeout(function() {
+            lightyear.notify('服务器错误，请稍后尝试~', 'danger', 100);
+          }, 1e3)
+          $btn.button("reset")
+
+        }
+      });
+    })
+  })
+</script>
+</body>
+</html>

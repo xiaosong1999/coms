@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <meta name="keywords" content="COMS后台管理系统">
+  <meta name="description" content="COMS后台管理系统">
+  <meta name="author" content="yinqi">
+  <title>首页 - COMS后台管理系统</title>
+  <link rel="icon" th:href="@{/icon/favicon.ico}" type="image/ico">
+  <link rel="stylesheet" href="https://www.jq22.com/jquery/bootstrap-3.3.4.css">
+  <link th:href="@{/css/materialdesignicons.min.css}" rel="stylesheet">
+  <link th:href="@{/css/style.min.css}" rel="stylesheet">
+  <link th:href="@{/css/main_div.css}" rel="stylesheet">
+  <style>
+    .table-hover tbody td{
+      word-break: break-all;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .img_icon{
+      margin-top: -8px;
+      margin-bottom: -8px;
+      width: auto;
+      height: 48px
+    }
+
+   td,th{
+      text-align: center;
+      vertical-align: middle!important;
+    }
+    .pagination.no-border.active{
+      pointer-events: none;
+    }
+    .not_allowed{
+      pointer-events: auto!important;
+      cursor: not-allowed!important;
+    }
+  </style>
+</head>
+  
+<body>
+<!-- Start信息展示窗口 -->
+<div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+      </div>
+      <div class="modal-body">
+        <div allowfullscreen="">
+          <form id="form" action="#!" method="post" class="row" style="padding-left: 10%">
+            <div class="form-group col-md-10">
+              <label for="cate_level">类目级别</label>
+              <div class="clearfix">
+                <label class="lyear-radio radio-inline radio-primary">
+                  <input type="radio" id="cate_level" name="level" class="cate_radio" value="1"><span>一级类目</span>
+                </label>
+                <label class="lyear-radio radio-inline radio-primary">
+                  <input type="radio"  name="level" class="cate_radio default_radio" checked="checked" value="0"><span>二级类目</span>
+                </label>
+              </div>
+            </div>
+            <div class="form-group col-md-10">
+              <label for="cate_name">类目名</label>
+              <input type="text" class="form-control" id="cate_name" name="name"/>
+              <input type="text" id="cate_id" name="id" style="display: none">
+            </div>
+            <div class="form-group col-md-10">
+              <label for="cate_icon">类目图标</label>
+              <div class="form-controls">
+                <ul class="list-inline clearfix lyear-uploads-pic">
+                  <li class="col-xs-4 col-sm-3 col-md-2">
+                    <figure>
+                      <img id="show" src="" alt="">
+                      <figcaption>
+<!--                    <a class="btn btn-round btn-square btn-primary" href="#!"><i class="mdi mdi-eye"></i></a>-->
+                        <a class="btn btn-round btn-square btn-danger" id="removePic" href="#!"><i class="mdi mdi-delete"></i></a>
+                      </figcaption>
+                    </figure>
+                  </li>
+                  <li class="col-xs-4 col-sm-3 col-md-2" style="text-align: center">
+                    <a class="pic-add" id="add-pic-btn" href="#!" title="点击上传"></a>
+                    <input type="file" id="picFile" value="" onchange="showPic(this)" name="picFile" style="display: none">
+                    <input type="text" id="cate_icon" name="icon" style="display: none">
+                  </li>
+
+                </ul>
+              </div>
+            </div>
+            <div class="form-group col-md-10">
+              <label for="cate_parent_id">父类目</label>
+              <div class="form-controls">
+                <select class="form-control" id="cate_parent_id">
+                  <option value="none" selected disabled hidden>请选择父类目</option>
+                  <option th:each="l1Cate:${l1Cates}"  th:text="${l1Cate.name}" th:value="${l1Cate.id}"></option>
+                </select>
+                <input type="text" style="display: none" id="parent_id" name="parentId">
+              </div>
+            </div>
+            <div class="form-group col-md-10">
+              <button type="button" class="btn btn-primary ajax-post" th:value="|${pageInfo.getPageNum()},${pageInfo.total},${pageInfo.getPageSize()}|" id="submit" target-form="add-form">确 定</button>
+<!--              $('#myModal').modal('show');-->
+              <button type="button" class="btn btn-default" onclick="javascript:$('#myModal').modal('hide');return false;">返 回</button>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End信息展示窗口 -->
+<div class="lyear-layout-web">
+  <div class="lyear-layout-container">
+    <!--左侧导航-->
+        <aside class="lyear-layout-sidebar">
+
+            <!-- logo -->
+            <div id="logo" class="sidebar-header">
+                <a href="javascript:void(0)" onclick="forward('/admin/auth/index')"><img
+                        th:src="@{/images/logo-sidebar.png}" title="LightYear" alt="LightYear"/></a>
+            </div>
+            <div class="lyear-layout-sidebar-scroll">
+
+                <nav class="sidebar-main">
+                    <ul class="nav nav-drawer">
+                        <li class="nav-item"><a href="javascript:void(0)" onclick="forward('/admin/auth/index')"><i
+                                class="mdi mdi-home"></i> 后台首页</a></li>
+                        <li class="nav-item nav-item-has-subnav active open">
+                            <a href="javascript:void(0)"><i class="mdi mdi-palette"></i>商品管理</a>
+                            <ul class="nav nav-subnav">
+                                <li><a href="javascript:void(0)"
+                                       onclick="forward('/admin/product/productList')">商品列表</a></li>
+                                <li><a href="javascript:void(0)" onclick="forward('/admin/product/addProduct')">商品上架</a>
+                                </li>
+                                <li class="active"><a href="javascript:void(0)"
+                                       onclick="forward('/admin/category/categoryList')">类目列表</a></li>
+                                <!--                <li> <a href="javascript:void(0)" onclick="forward('/admin/category/addCategory')">类目添加</a> </li>-->
+                                <!--                <li> <a href="javascript:test1()">商品列表</a> </li>-->
+                                <!--                <li> <a href="javascript:test()">商品上架</a> </li>-->
+                            </ul>
+                        </li>
+                        <li class="nav-item nav-item-has-subnav">
+                            <a href="javascript:void(0)"><i class="glyphicon glyphicon-user"></i>用户管理</a>
+                            <ul class="nav nav-subnav">
+                                <li> <a href="javascript:void(0)" onclick="forward('/admin/member/stallList')">采购商</a> </li>
+                                <li> <a href="javascript:void(0)" onclick="forward('/admin/member/supList')">供应商</a> </li>
+                                <li> <a href="javascript:void(0)" onclick="forward('/admin/member/adminList')">管理员</a> </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="javascript:void(0)" onclick="forward('/admin/order/orderList')"><i class="mdi mdi-format-align-justify"></i>订单管理</a>
+                        </li>
+                        <li class="nav-item nav-item-has-subnav">
+                            <a href="javascript:void(0)"><i class="mdi mdi-file-outline"></i>统计</a>
+                            <ul class="nav nav-subnav">
+                                <li><a href="javascript:void(0)" onclick="forward('/admin/order/orderAllItem')">订单统计</a></li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                </nav>
+
+                <div class="sidebar-footer">
+                    <p class="copyright">Copyright &copy; 2021 by <br>天津市大学软件学院后勤部<br> All rights reserved. </p>
+                </div>
+            </div>
+
+        </aside>
+        <!--End 左侧导航-->
+    <div id="main_div" class="raw">
+      <div class="cd-main-content">
+        <!--头部信息-->
+        <header class="lyear-layout-header">
+
+          <nav class="navbar navbar-default">
+            <div class="topbar">
+
+              <div class="topbar-left">
+                <div class="lyear-aside-toggler">
+                  <span class="lyear-toggler-bar"></span>
+                  <span class="lyear-toggler-bar"></span>
+                  <span class="lyear-toggler-bar"></span>
+                </div>
+                <span class="navbar-page-title"> 类目列表 </span>
+              </div>
+
+              <ul class="topbar-right">
+                <li class="dropdown dropdown-profile">
+                  <a href="javascript:void(0)" data-toggle="dropdown">
+                    <img class="img-avatar img-avatar-48 m-r-10" th:src="@{/images/users/avatar.jpg}" alt="后台系统" />
+                    <span th:text="${admin.name}"><span class="caret"></span></span>
+                  </a>
+                  <ul class="dropdown-menu dropdown-menu-right">
+                    <li> <a href="javascript:void(0)" onclick="forward('/admin/auth/editProfile')"><i class="mdi mdi-account"></i> 个人信息</a> </li>
+                    <li> <a href="javascript:void(0)" onclick="forward('/admin/auth/editPassword')"><i class="mdi mdi-lock-outline"></i> 修改密码</a> </li>
+                    <!--                <li> <a href="javascript:void(0)"><i class="mdi mdi-delete"></i> 清空缓存</a></li>-->
+                    <!--                <li class="divider"></li>-->
+                    <li> <a href="javascript:void(0)" onclick="forward('/admin/auth/logout')"><i class="mdi mdi-logout-variant"></i> 退出登录</a> </li>
+                  </ul>
+                </li>
+
+              </ul>
+
+            </div>
+          </nav>
+
+        </header>
+        <!--End 头部信息-->
+
+        <!--页面主要内容-->
+        <main class="lyear-layout-content">
+
+          <div class="container-fluid">
+
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="card">
+                  <div class="card-toolbar clearfix">
+                    <form class="pull-left search-bar" method="get" action="#" th:action="@{/admin/category/queryByName}" role="form">
+                      <div class="input-group">
+                        <input type="text" class="form-control" value="" name="cateName" placeholder="请输入名称">
+                        <div class="input-group-btn">
+                          <button class="btn btn-primary m-r-5">
+                            <i class="mdi mdi-search-web"></i>查找
+                          </button>
+    <!--                      <a class="btn btn-primary m-r-5" href=""><i class="mdi mdi-search-web"></i>查找</a>-->
+                        </div>
+                      </div>
+                    </form>
+                    <div class="toolbar-btn-action">
+                      <a class="btn btn-success m-r-5" href="javascript:void(0)" onclick="add()"><i class="mdi mdi-lock-plus"></i> 添加</a>
+                      <a class="btn btn-warning m-r-5" href="javascript:void(0)" id="generate-excel"><i class="mdi mdi-download"></i> 导出</a>
+    <!--                  <a class="btn btn-danger" href="#!"><i class="mdi mdi-window-close"></i> 删除</a>-->
+                    </div>
+                  </div>
+                  <div class="card-body">
+
+                    <div class="table-responsive">
+                      <input th:value="${pageInfo.list}" style="display: none" id="cates-temp">
+                      <input th:value="${l1Cates}" style="display: none" id="l1-cates-temp">
+                      <table width="100%"  style="table-layout:fixed" id="table" class="table table-bordered table-hover">
+                        <thead>
+                          <tr>
+                            <th>类目ID</th>
+                            <th>类目名</th>
+                            <th>类目图标</th>
+                            <th>级别</th>
+                            <th>父类目ID</th>
+                            <th>操作</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="cate:${pageInfo.list}">
+                              <td th:text="${cate.id}"></td>
+                              <td th:text="${cate.name}"></td>
+                              <td><img class="img_icon" th:src="@{'/uploadfiles/'+${cate.icon}}" alt=""></td>
+                              <td th:class="${cate.parentId==0}?'text-success':''"
+                                  th:text="${cate.parentId==0?'一级类目':'二级类目'}"></td>
+                              <td th:text="${cate.parentId}"></td>
+                              <td>
+                                <div class="btn-group">
+                                  <button class="btn btn-xs btn-default edit" title="编辑" href="javascript:void(0)" th:value="${cate}" th:onclick="edit(this)" data-toggle="tooltip"><i class="mdi mdi-pencil"></i></button>
+                                  <a class="btn btn-xs btn-default" title="删除" th:onclick="remove([[${cate.id}]],[[${pageInfo.getPageNum()}]],[[${pageInfo.getSize()}]])" href="javascript:void(0)" data-toggle="tooltip"><i class="mdi mdi-window-close"></i></a>
+                                </div>
+                              </td>
+                            </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <ul class="pagination no-border">
+                      <li><span>共 <span th:text="${pageInfo.getTotal()}"></span> 条</span></li>
+                      <li>
+                        <a th:class="${pageInfo.isFirstPage}?'not_allowed':''" href="javascript:void(0)" th:onclick="|javascript:forward('/admin/category/categoryList?pageNum=${pageInfo.getPrePage()}',this)|" ><span>«</span></a>
+                      </li>
+                      <li th:class="${pageInfo.pageNum==index}?'active':''" th:each="index:${#numbers.sequence(1,pageInfo.pages)}">
+                        <a href="javascript:void(0)" th:onclick="|javascript:forward('/admin/category/categoryList?pageNum=${index}',this)|" th:text="${index}"></a>
+                      </li>
+                      <li>
+                        <a  th:class="${pageInfo.isLastPage}?'not_allowed':''" href="javascript:void(0)" th:onclick="|javascript:forward('/admin/category/categoryList?pageNum=${pageInfo.getNextPage()}',this)|"><span>»</span></a>
+                      </li>
+                      <li><span>当前第 <span th:text="${pageInfo.getPageNum()}"></span> 页</span></li>
+                    </ul>
+
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+        </main>
+        <!--End 页面主要内容-->
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+<script src="https://www.jq22.com/jquery/bootstrap-3.3.4.js"></script>
+<script type="text/javascript" th:src="@{/js/perfect-scrollbar.min.js}"></script>
+<!--消息提示-->
+<script th:src="@{/js/bootstrap-notify.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/lightyear.js}"></script>
+<script type="text/javascript" th:src="@{/js/main.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/redirect.js}"></script>
+<script type="text/javascript" th:src="@{/js/xlsxgenerate/transfer.js}"></script>
+<script type="text/javascript" th:src="@{/js/xlsxgenerate/xlsx.core.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/xlsxgenerate/xlsx.full.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/xlsxgenerate/xlsx.suf.js}"></script>
+
+<script type="text/javascript">
+  var cates = null;
+  var uploadFlag = false;
+  function showPic(obj) {
+    var reads = new FileReader();
+    f = document.getElementById('picFile').files[0];
+    $("#add-pic-btn").css("display", "none");
+    reads.readAsDataURL(f);
+    reads.onload = function(e) {
+      // document.getElementById('show').src = this.result;
+      $('#show').attr('src',this.result);
+      $('#show').attr('alt',this.result);
+      $("#show").css("display", "block");
+      $("#cate_icon").val(f.name);
+    };
+  }
+
+  function ajaxlocal(){
+    var formData = new FormData();
+    formData.append('file', $('#picFile')[0].files[0]);
+
+    if(typeof (formData) == "undefined" || formData.size <= 0 || formData.get("file")=="undefined"){
+      // alert("请选择图片");
+      lightyear.loading('show');
+      // 假设ajax提交操作
+      setTimeout(function() {
+        lightyear.loading('hide');
+        lightyear.notify('图片错误，请重新上传~', 'danger', 100);
+      }, 1e3);
+      return;
+    }
+
+    $.ajax({
+      url : "/admin/category/uploading",
+      type: 'post', //上传文件不能用get请求，只能用post或者put等上传大文件的请求
+      //这里的数据是上面的form表单对象
+      data:formData,
+      processData:false,
+      contentType:false,
+      cache:false,
+      async: false,//将异步设置为同步
+      success : function(result) {
+        // var c = eval('('+result+')');
+        // console.log(c.errno==0);
+        if(result.errno==0){
+          uploadFlag = true;
+          // console.log(uploadFlag)
+        }else{
+          setTimeout(function() {
+            lightyear.loading('hide');
+            lightyear.notify(result.errmsg, 'danger', 100);
+          }, 1e3)
+        }
+
+      },
+      error:function(e){
+        setTimeout(function() {
+          lightyear.loading('hide');
+          lightyear.notify('服务器错误，请稍后再试~', 'danger', 100);
+        }, 1e3)
+      }
+    });
+  }
+
+  function add(){
+    $("#add-pic-btn").css("display", "block");
+    $("#cate_level").parent().parent().parent().css("display","block");
+    // $(".cate_radio").val("0");
+    var ff = $('.cate_radio:radio:checked').val();
+    if(ff==1){
+      $('#cate_parent_id').parent().parent().css("display","none");
+      $('#cate_parent_id').val('none');
+      $('#parent_id').val('0');
+    }else{
+      $('#cate_parent_id').parent().parent().css("display","block");
+      $('#cate_parent_id').val('none');
+      $('#parent_id').val($('#cate_parent_id').val());
+    }
+    $("#cate_id").val("");
+    $("#cate_icon").val("");
+    $("#cate_name").val("");
+    $("#show").attr("src","");
+    $("#cate_parent_id").removeAttr("disabled");
+    $('#myModal').modal('show');
+    // console.log($("#cate_parent_id").val());
+  }
+
+  function edit(obj){
+    $("#add-pic-btn").css("display", "block");
+    $("#cate_id").val("");
+    $("#cate_icon").val("");
+    $("#cate_name").val("");
+    $("#parent_id").val("");
+    $("#show").attr("src","");
+    var cateData = $(obj).val();
+    var arr = ['createTime','updateTime'];
+    // var replaceAttrsJson = {'id':'编号','icon':'图标'};
+    cate = transferStrToJson('ComsCategory',cateData,arr)[0];
+    console.log(cate);
+    $('#cate_id').val(cate.id);
+    $('#cate_name').val(cate.name);
+    $('#cate_icon').val(cate.icon);
+    $('#parent_id').val(cate.parentId);
+    $('#show').attr('src','/uploadfiles/'+cate.icon);
+    $("#cate_level").parent().parent().parent().css("display","none");
+    $("#cate_parent_id").attr("disabled","disabled");
+    if(cate.parentId==0){
+      $('#cate_parent_id').val(cate.parentId);
+      $('#cate_parent_id').parent().parent().css("display","none");
+    }else{
+      $('#cate_parent_id').parent().parent().css("display","block");
+      $('#cate_parent_id').val(cate.parentId);
+    }
+    $('#myModal').modal('show');
+  }
+  function forward(url,obj){
+    // console.log(url);
+    if($(obj).hasClass('not_allowed')||$(obj).parent().hasClass('active')){
+      return false;
+    }
+    $('#main_div').addClass('fadeout');
+    setTimeout(() => {
+      window.location.href = url;
+    },reflushTime)
+  }
+  function remove(cateId,pageNum,pageSize){
+    console.log("cateId:"+cateId+";pageNum:"+pageNum+";pageSize:"+pageSize);
+    if(pageSize==1&&pageNum!=1){
+      pageNum -= 1;
+    }
+    // 假设ajax提交操作
+    $.ajax({
+      type: "get",//方法类型
+      dataType: "json",//服务器返回的数据类型
+      url: "/admin/category/remove?cateId="+cateId ,//控制器url
+      success: function (result) {
+        console.log(result);//测试是否有数据
+        if (result.errno == 0) {//200正确
+          window.location.href = '/admin/category/categoryList?pageNum='+pageNum;//成功后跳转到某界面
+        }else{
+          // 假设ajax提交操作
+          setTimeout(function() {
+            lightyear.notify(result.errmsg, 'danger', 100);
+          }, 1e3)
+        }
+      },
+      error : function(err) {
+        // console.log("err"+err);//测试是否有数据
+        // $("#errmsg").text(err.errmsg);
+        setTimeout(function() {
+          lightyear.notify('服务器错误，请稍后尝试~', 'danger', 100);
+        }, 1e3)
+      }
+    });
+
+  }
+
+$(function(){
+  var whoClick = true;
+  $('#main_div').addClass("fadein");
+  setTimeout(() => {
+    $('#main_div').removeClass("fadein");
+    $('#main_div').removeClass("raw");
+  }, reflushTime);
+  $('.search-bar .dropdown-menu a').click(function() {
+      var field = $(this).data('field') || '';
+      $('#search-field').val(field);
+      $('#search-btn').html($(this).text() + ' <span class="caret"></span>');
+  });
+  cates = $("#cates-temp").val();
+  l1Cates = $("#l1_cates-temp").val();
+
+  $('.not_allowed').click(function(){
+    return false;
+  })
+  $(".cate_radio").change(function(){
+    if($(this).val()==0){
+      $('#cate_parent_id').parent().parent().css("display","block");
+      // $('#parent_id').val($('#cate_parent_id').val());
+      // console.log($('#parent_id').val());
+    }else{
+      $('#cate_parent_id').parent().parent().css("display","none");
+    }
+    $('#cate_parent_id').val('none');
+    $('#parent_id').val('0');
+    $("#cate_name").val('');
+    $("#picFile").val('');
+    $("#cate_icon").val('');
+    $('#show').attr('src',"#");
+    $('#show').attr('alt',"#");
+    $("#show").css("display", "none");
+    $("#add-pic-btn").css("display", "block");
+  })
+
+  $("#add-pic-btn").click(function(){
+    $("#picFile").click();
+  });
+  $("#removePic").click(function(){
+    console.log("asdfsadf");
+    $('#show').attr('src',"#");
+    $('#show').attr('alt',"#");
+    $("#show").css("display", "none");
+    $("#picFile").val("");
+    $("#cate_icon").val("");
+    $("#add-pic-btn").css("display", "block");
+  });
+  $.fn.parseForm=function(){
+    var serializeObj={};
+    var array=this.serializeArray();
+    var str=this.serialize();
+    $(array).each(function(){
+      if(serializeObj[this.name]){
+        if($.isArray(serializeObj[this.name])){
+          serializeObj[this.name].push(this.value);
+        }else{
+          serializeObj[this.name]=[serializeObj[this.name],this.value];
+        }
+      }else{
+        serializeObj[this.name]=this.value;
+      }
+    });
+    return serializeObj;
+  };
+  $('#submit').click(function(){
+    console.log("submit");
+    // console.log($("#cate_parent_id").val());
+    $("#parent_id").val($("#cate_parent_id").val());
+    // console.log($("#parent_id").val());
+    var param = $('#form').parseForm();
+    console.log(param);
+    // console.log(param.parentId);
+    var contentFlag = true;
+    if(param.name.length == 0||param.name.split(" ").join("").length == 0){
+      $("#cate_name").prev().children(":first").remove();
+      $("#cate_name").parent().addClass('has-error');
+      $("#cate_name").prev().append("<span style='color: red;margin-left:10px; font-size: 20px'>*</span>");
+      contentFlag = false;
+    }else{
+      $("#cate_name").parent().removeClass('has-error');
+      $("#cate_name").prev().children(":first").remove();
+    }
+    if(param.id.length == 0||param.id.split(" ").join("").length == 0){
+      if(param.level == 0&& (param.parentId == 'none'||param.parentId.length == 0||param.parentId.split(" ").join("").length == 0)){
+        $("#cate_parent_id").parent().prev().children(":first").remove();
+        $("#cate_parent_id").parent().parent().addClass('has-error');
+        $("#cate_parent_id").parent().prev().append("<span style='color: red;margin-left:10px; font-size: 20px'>*</span>");
+        contentFlag = false;
+      }else{
+        $("#cate_parent_id").parent().parent().removeClass('has-error');
+        $("#cate_parent_id").parent().prev().children(":first").remove();
+      }
+    }
+    if(param.icon.length == 0 || param.icon.split(" ").join("").length==0){
+      $("#cate_icon").parent().parent().parent().prev().children(":first").remove();
+      $("#cate_icon").parent().parent().parent().addClass('has-error');
+      $("#cate_icon").parent().parent().parent().prev().append("<span style='color: red;margin-left:10px; font-size: 20px'>*</span>");
+      contentFlag = false;
+    }else{
+      $("#cate_icon").parent().parent().parent().parent().removeClass('has-error');
+      $("#cate_icon").parent().parent().parent().prev().children(":first").remove();
+    }
+    console.log(contentFlag);
+    if(!contentFlag){
+      setTimeout(function() {
+        lightyear.notify('请完善商品信息！', 'danger', 100);
+      }, 1e2)
+      return false;
+    }
+    lightyear.loading('show');
+    ajaxlocal();
+    if(!uploadFlag){
+      // 假设ajax提交操作
+      setTimeout(function() {
+        lightyear.loading('hide');
+        lightyear.notify('图片上传失败，请重新上传', 'danger', 100);
+      }, 1e3)
+      //用于判断输入框是否为空
+      // alert("文件上传失败，请重新尝试");
+      return false;
+    }
+    var page = $(this).val();
+    var pageArr = page.split(',');
+    var pageNum = Number(pageArr[0]);
+    var pageTotal = Number(pageArr[1]);
+    var pageSize = Number(pageArr[2]);
+    var lastPageNum;
+    if(param.id == ""){
+      console.log("add");
+      lastPageNum = parseInt(pageTotal/pageSize)+1;
+      // return false;
+      $.ajax({
+        url : '/admin/category/add',
+        data : JSON.stringify(param),
+        type : 'post',
+        dataType : 'json',
+        contentType:'application/json',
+        success : function(data) {
+          if(data.errno==0){
+            // 假设ajax提交操作
+            setTimeout(function() {
+              lightyear.loading('hide');
+              lightyear.notify('添加成功，页面即将自动跳转~', 'success', 3000);
+              $("#main_div").addClass('fadeout');
+              setTimeout(function () {
+                window.location.href = "/admin/category/categoryList?pageNum="+lastPageNum;
+              }, 1e3)
+            }, 1e2)
+
+          }else{
+            // 假设ajax提交操作
+            setTimeout(function() {
+              lightyear.loading('hide');
+              lightyear.notify(data.errmsg, 'danger', 100);
+            }, 1e3)
+          }
+        },
+        error:function () {
+          // 假设ajax提交操作
+          setTimeout(function() {
+            lightyear.loading('hide');
+            lightyear.notify('服务器错误，请稍后再试~', 'danger', 100);
+          }, 1e3)
+        }
+      });
+    }else{
+      console.log("update");
+      $.ajax({
+        url : '/admin/category/edit',
+        data : JSON.stringify(param),
+        type : 'post',
+        dataType : 'json',
+        contentType:'application/json',
+        success : function(data) {
+          if(data.errno==0){
+            // 假设ajax提交操作
+            setTimeout(function() {
+              lightyear.loading('hide');
+              lightyear.notify('更新成功，页面即将自动跳转~', 'success', 3000);
+              $("#main_div").addClass('fadeout');
+              setTimeout(function () {
+                window.location.href = "/admin/category/categoryList?pageNum="+pageNum;
+              }, 1e3)
+            }, 1e2)
+            // $('#main_div').addClass("fadeout");
+          }else{
+            // 假设ajax提交操作
+            setTimeout(function() {
+              lightyear.loading('hide');
+              lightyear.notify(data.errmsg, 'danger', 100);
+            }, 1e3)
+          }
+        },
+        error:function () {
+          // 假设ajax提交操作
+          setTimeout(function() {
+            lightyear.loading('hide');
+            lightyear.notify('服务器错误，请稍后再试~', 'danger', 100);
+          }, 1e3)
+        }
+      });
+    }
+
+  });
+  /**
+   *  transferStrToJson(a,b,c,d)
+   *  a 当前集合的泛型
+   *  b 当前jsonStr集合
+   *  c 数组类型 不需要的列（当前对象的属性名）
+   *  d 要替换的属性名 id => 编号
+   * @type {any}
+   */
+  $("#generate-excel").click(function(){
+    // console.log("excel");
+    // console.log(cates);
+    var arr = ['createTime','updateTime'];
+    var attrs = {"id":"类目ID","name":"类目名","icon":"图标信息","parentId":"父类ID"};
+    var catesObj = transferStrToJson("ComsCategory",cates,arr,attrs);
+    console.log(catesObj);
+    // return false;
+    exportExcel(catesObj);
+  })
+});
+</script>
+</body>
+</html>

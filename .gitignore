@@ -1,0 +1,7 @@
+/coms-admin/target/
+/coms-db/target/
+/coms-wx/target/
+/coms-all/target/
+.idea
+/coms-admin/src/main/resources/static/export/
+/coms-admin/src/main/resources/static/upload/

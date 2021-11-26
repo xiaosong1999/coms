@@ -1,0 +1,30 @@
+datasource:
+  username: root
+  password: root
+#  password: qQkKdgr#db1
+  url: jdbc:mysql://localhost:3306/group?characterEncoding=utf8&allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC&rewriteBatchedStatements=true&zeroDateTimeBehavior=convertToNull
+  driver-class-name: com.mysql.cj.jdbc.Driver
+
+spring:
+  datasource:
+    druid:
+      initial-size: 50
+      min-idle: 50
+      max-active: 200
+      max-wait: 300000
+      filters: stat,wall
+  redis:
+    host: 127.0.0.1
+    port: 6379
+  cache:
+    type: redis
+
+pagehelper:
+  auto-dialect: true
+  offset-as-page-num: true
+  row-bounds-with-count: true
+  reasonable: false
+mybatis:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    cache-enabled: true
