@@ -112,7 +112,6 @@ public class AdminMemberController {
         //去除添加档口的加密
 //        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 //        String password = encoder.encode(stallVo.getPassword());
-//        System.out.println("++++++++++++++++++++"+password);
         ComsStall stall = new ComsStall()
                 .setName(stallVo.getName())
                 .setPassword(stallVo.getPassword())
@@ -365,11 +364,11 @@ public class AdminMemberController {
         if(comsAdmins.size() > 0){
             return ResponseUtil.fail(403,"该用户名已存在");
         }
-        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-        String password = encoder.encode(adminVo.getPassword());
+/*        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+        String password = encoder.encode(adminVo.getPassword());*/
         ComsAdmin admin = new ComsAdmin()
                 .setUsername(adminVo.getUsername())
-                .setPassword(password)
+                .setPassword(adminVo.getPassword())
                 .setName(adminVo.getName())
                 .setType(adminVo.getType());
         //对数据库的添加操作
@@ -428,9 +427,9 @@ public class AdminMemberController {
     @RequestMapping("/editAdmin")
     public Object editAdmin(@RequestBody ComsAdmin admin) {
         System.out.println(admin);
-        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+/*        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
         String password = encoder.encode(admin.getPassword());
-        admin.setPassword(password);
+        admin.setPassword(password);*/
         int count = adminService.updateById(admin);
         if(count != 1){
             return ResponseUtil.busy();

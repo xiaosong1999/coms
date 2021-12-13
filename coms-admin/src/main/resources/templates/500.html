@@ -41,12 +41,14 @@ body{
   <div class="error-box">
     <div class="error-body text-center">
       <h1>500</h1>
-      <h4>您的操作有误</h4>
+      <h4>您的操作有误，2秒后回到首页</h4>
     </div>
   </div>
 </section>
 <script src="https://www.jq22.com/jquery/jquery-1.10.2.js"></script>
 <script src="https://www.jq22.com/jquery/bootstrap-3.3.4.js"></script>
-<script type="text/javascript">;</script>
+<script type="text/javascript">
+  setTimeout("javascript:location.href='/admin/auth/index'", 2000);
+</script>
 </body>
 </html>
