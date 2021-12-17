@@ -109,7 +109,6 @@ public class ComsOrderController {
                     System.out.println(order);
                     orders.put(currentSupId, order);
                     comsOrderService.insert(order);
-                    System.out.println("------------------执行----------------");
                     supSet.add(currentSupId);
                 }
                 ComsCartItem item = new ComsCartItem();
@@ -276,7 +275,6 @@ public class ComsOrderController {
      */
     @RequestMapping(value = "/getOrdersBySupplierId")
     public Object getOrdersBySupplierId(@RequestParam(value = "supplier") String supplier) {
-        System.out.println(supplier + "-------------");
         //String supplierlJson = new JSONObject().toJSONString(map.get("supplier"));
         Integer supplierId = Integer.parseInt(supplier);
         //ComsSupplier supplier = new JSONObject().parseObject(supplier, ComsSupplier.class);

@@ -48,9 +48,9 @@ public class AdminCategoryController {
 
     /**
      * 根据输入内容进行模糊查询
-     * @param pageNum
-     * @param pageSize
-     * @return
+     * @param pageNum 页数
+     * @param pageSize 每页显示的条数
+     * @return 分页后的结果s
      */
     @GetMapping("/queryByName")
     public Object queryByName(@RequestParam(value = "pageNum", required = false, defaultValue = "1")Integer pageNum,

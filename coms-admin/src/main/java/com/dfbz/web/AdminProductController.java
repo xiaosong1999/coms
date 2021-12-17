@@ -78,7 +78,8 @@ public class AdminProductController {
         mv.addObject("pageInfo",pageInfo);
         return mv;
     }
-//    @RequiresRoles("adminL1")
+
+    @RequiresRoles("adminL1")
     @RequestMapping("/product/editProduct")
     public Object editProduct(Integer prodId,Integer pageNum){
         ModelAndView mv = new ModelAndView("edit_product");

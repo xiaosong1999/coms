@@ -281,7 +281,6 @@ public class ComsProductController {
                 List<ComsPriceList> comsPriceList = priceListService.queryPriceListByProId(product.getId());
                 ComsPriceLists.add(comsPriceList);
                 List<ComsOrderItem> comsOrderItem = orderItemService.selectByProId(product.getId());
-                System.out.println("ddddddddddds" + comsOrderItem.size());
                 ComsOrderItems.add(comsOrderItem);
                 List<ComsStall> stalls = new ArrayList<>();
                 for (ComsOrderItem comsOrderIt : comsOrderItem) {

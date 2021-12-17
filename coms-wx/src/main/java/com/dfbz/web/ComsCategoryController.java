@@ -70,7 +70,6 @@ public class ComsCategoryController {
         if (HomeCacheManager.hasData(HomeCacheManager.CATALOG)) {
             return ResponseUtil.ok(HomeCacheManager.getCacheData(HomeCacheManager.CATALOG));
         }
-        System.out.println("-------------------------------------------------");
         //所有一级分类
         List<ComsCategory> l1CateList = categoryService.queryL1();
         System.out.println("----------------------------------------------------" + l1CateList.isEmpty());

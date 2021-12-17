@@ -16,12 +16,12 @@ import org.apache.shiro.authz.annotation.RequiresAuthentication;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.apache.shiro.subject.SimplePrincipalCollection;
 import org.apache.shiro.subject.Subject;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.util.StringUtils;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+
+import javax.annotation.Resource;
 
 import static com.dfbz.util.AdminResponseCode.ADMIN_INVALID_ACCOUNT;
 
@@ -32,16 +32,19 @@ import static com.dfbz.util.AdminResponseCode.ADMIN_INVALID_ACCOUNT;
 public class AdminAuthController {
     private final Log logger = LogFactory.getLog(com.dfbz.web.AdminAuthController.class);
 
-    @Autowired
+    @Resource
     private ComsAdminService adminService;
 
-    /*
-     *  { username : value, password : value }
+    /***
+     * { username : value, password : value }
+     * @param username 用户名
+     * @param password 密码
+     * @return ok登陆成功/fail失败
      */
     @PostMapping("/login")
     public Object login(String username,String password) {
         System.out.println("username:"+username+",password:"+password);
-        if (StringUtils.isEmpty(username) || StringUtils.isEmpty(password)) {
+        if (username.isEmpty() || password.isEmpty()) {
             return ResponseUtil.badArgument();
         }
 
@@ -83,7 +86,7 @@ public class AdminAuthController {
     }
 
     @RequestMapping("/editPassword")
-    public Object editPassword(Integer id){
+    public Object editPassword(){
         ModelAndView mv = new ModelAndView("edit_password");
         ComsAdmin admin = (ComsAdmin) SecurityUtils.getSubject().getPrincipal();
         mv.addObject("admin",admin);
@@ -101,8 +104,6 @@ public class AdminAuthController {
         }
         admin.setPassword(encoder.encode(password));
         adminService.updateById(admin);
-//        System.out.println("----------------------------------------original:"+original);
-//        System.out.println("----------------------------------------password:"+password);
         return ResponseUtil.ok();
     }
 

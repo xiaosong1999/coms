@@ -22,6 +22,9 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
+/***
+ * 设计订单的请求页面
+ */
 @RestController
 @RequestMapping("/admin")
 public class AdminOrderController {
@@ -65,7 +68,7 @@ public class AdminOrderController {
 
 
     /***
-     * 通过订单id查询内部订单内商品
+     * 通过订单id查询订单内商品
      * @param orderId
      * @param pageNum
      * @param pageSize
@@ -87,7 +90,7 @@ public class AdminOrderController {
     }
 
     /***
-     * 查询所有部订单
+     * 查询所有订单
      * @param pageNum
      * @param pageSize
      * @return
@@ -110,7 +113,7 @@ public class AdminOrderController {
     }
 
     /***
-     * 按orderId查stall详情
+     * 按订单id查stall详情
      * @param orderId
      * @return
      */
@@ -122,7 +125,7 @@ public class AdminOrderController {
 
 
     /***
-     * 订单模糊查找
+     * 按供应商模糊查找订单
      * @param keyWord
      * @param pageNum
      * @param pageSize
@@ -176,6 +179,10 @@ public class AdminOrderController {
     }
 
 
+    /***
+     * 查询所有档口
+     * @return
+     */
     @GetMapping("/stall/getAllStall")
     public Object getAllStall() {
         List<ComsSupplier> suppliers = supplierService.listAllSupplier();
@@ -184,22 +191,28 @@ public class AdminOrderController {
     }
 
 
+    /***
+     * 导出Excel
+     * @param startDate
+     * @param endDate
+     * @param supId
+     * @param res
+     * @throws IOException
+     */
     @RequestMapping(value = "/exportExcel", method = RequestMethod.GET)
     public void exportExcel(@RequestParam(value = "startDate") String startDate,
                             @RequestParam(value = "endDate") String endDate,
                             @RequestParam(value = "supId") Integer supId,
                             HttpServletResponse res) throws IOException {
 
+        //前台传入时间为String，需要进行格式化处理再去查询
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-
-        //文件名时间处理
         String dateTime=LocalDateTime.now().format(dateTimeFormatter).replaceAll("[-: ]","");
 
-
-        ComsSupplier sup_temp = supplierService.findById(supId);
         //excel导出路径
-//        String filePath = System.getProperty("user.dir") + "/coms-admin/src/main/resources/static/export/" + sup_temp.getName() + "_" + startDate + "至" + endDate + "_" + dateTime + ".xlsx";
+        ComsSupplier sup_temp = supplierService.findById(supId);
         String filePath = "/root/export/"+ sup_temp.getName() + "_" + startDate + "至" + endDate + "_" + dateTime + ".xlsx";
+
         String[] split = startDate.split("-");
         String[] split1 = endDate.split("-");
 
@@ -215,6 +228,7 @@ public class AdminOrderController {
         LocalDateTime startDateTime = LocalDateTime.parse(startDate, dateTimeFormatter);
         LocalDateTime endDateTime = LocalDateTime.parse(endDate, dateTimeFormatter);
 
+        //查询要导出的数据
         List<ComsOrderItem> comsOrderItems = orderItemService.queryOrderItems(startDateTime, endDateTime, supId);
 
 
@@ -255,6 +269,11 @@ public class AdminOrderController {
         out.close();//关闭文件流
 
 
+
+
+        /***
+         * 返回前端下载
+         */
         File excelFile = new File(filePath);
 
         res.setCharacterEncoding("UTF-8");
@@ -268,6 +287,7 @@ public class AdminOrderController {
         //加上设置大小下载下来的.xlsx文件打开时才不会报“Excel 已完成文件级验证和修复。此工作簿的某些部分可能已被修复或丢弃”
 
         res.addHeader("Content-Length", String.valueOf(excelFile.length()));
+
 
         try {
 

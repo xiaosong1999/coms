@@ -23,6 +23,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Map;
 
+
 @RestController
 @RequestMapping("/admin/search")
 public class AdminSearchController {
@@ -40,7 +41,6 @@ public class AdminSearchController {
 
     @RequestMapping("/product")
     public Object searchByProDate(@RequestBody AppointmentDto appointmentDto) {
-        System.out.println("-------aaaa-------");
         List<ComsProduct> products =
                 searchService.searchProByDate(appointmentDto);
         for (ComsProduct product : products) {

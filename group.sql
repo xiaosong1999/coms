@@ -11,7 +11,7 @@
  Target Server Version : 80026
  File Encoding         : 65001
 
- Date: 08/12/2021 14:36:53
+ Date: 17/12/2021 14:06:49
 */
 
 SET NAMES utf8mb4;
@@ -54,43 +54,16 @@ CREATE TABLE `coms_category`  (
 -- ----------------------------
 -- Records of coms_category
 -- ----------------------------
-INSERT INTO `coms_category` VALUES (4, 0, '主食', '78f962f6-9427-483f-b7aa-67933ea54701.png', '2021-07-08 10:00:24', '2021-12-08 09:34:14');
-INSERT INTO `coms_category` VALUES (5, 0, '食用油', '320b1dd9-779c-4adc-8581-9aee9c536df7.png', '2021-07-08 10:00:24', '2021-12-08 09:35:24');
-INSERT INTO `coms_category` VALUES (6, 0, '调料', '7dfd968c-9fe1-4014-b856-056d22b45590.png', '2021-07-08 10:00:24', '2021-12-08 09:35:32');
-INSERT INTO `coms_category` VALUES (7, 0, '蔬菜', '294b6dc6-3fe3-443a-9b1c-3984174fd8b2.png', '2021-07-08 10:00:24', '2021-12-08 09:35:47');
-INSERT INTO `coms_category` VALUES (8, 0, '肉/蛋', '0172a3e8-992e-4fc1-af60-c5a22ed2d7c1.png', '2021-07-08 10:00:24', '2021-12-08 09:36:07');
-INSERT INTO `coms_category` VALUES (9, 0, '其他', 'e740e395-73e4-4d02-a3f8-f5b64aebdc62.png', '2021-07-08 10:00:24', '2021-12-08 09:36:16');
-INSERT INTO `coms_category` VALUES (15, 6, '白糖', 'rice.png', '2021-07-08 10:00:24', '2021-07-08 10:00:24');
-INSERT INTO `coms_category` VALUES (16, 6, '白醋', 'rice.png', '2021-07-08 10:00:24', '2021-07-08 10:00:24');
-INSERT INTO `coms_category` VALUES (17, 6, '味精', 'rice.png', '2021-07-08 10:00:24', '2021-07-08 10:00:24');
+INSERT INTO `coms_category` VALUES (4, 0, '主食', 'rice.png', '2021-07-08 10:00:24', '2021-07-08 10:00:24');
+INSERT INTO `coms_category` VALUES (5, 0, '食用油', 'test1.png', '2021-07-08 10:00:24', '2021-07-08 10:00:24');
+INSERT INTO `coms_category` VALUES (6, 0, '调料', 'seasoning.png', '2021-07-08 10:00:24', '2021-07-08 10:00:24');
+INSERT INTO `coms_category` VALUES (7, 0, '蔬菜', 'vegetables.png', '2021-07-08 10:00:24', '2021-07-08 10:00:24');
+INSERT INTO `coms_category` VALUES (8, 0, '肉/蛋', 'meat.png', '2021-07-08 10:00:24', '2021-08-14 16:38:43');
+INSERT INTO `coms_category` VALUES (9, 0, '其他', 'test1.png', '2021-07-08 10:00:24', '2021-07-08 10:00:24');
+INSERT INTO `coms_category` VALUES (15, 6, '白糖', 'f6a88388-6844-41c2-8c28-a27117636bce.png', '2021-07-08 10:00:24', '2021-08-30 19:36:49');
+INSERT INTO `coms_category` VALUES (16, 6, '白醋', 'efb8bbc8-3f61-47ca-80cb-3d1ad83700d5.png', '2021-07-08 10:00:24', '2021-08-30 19:37:18');
+INSERT INTO `coms_category` VALUES (17, 6, '味精', '1b5b8f90-feb3-4b3e-9e8e-e101870e6787.png', '2021-07-08 10:00:24', '2021-08-30 19:38:11');
 INSERT INTO `coms_category` VALUES (18, 6, '沙司', 'rice.png', '2021-07-08 10:00:24', '2021-07-08 10:00:24');
-INSERT INTO `coms_category` VALUES (19, 6, '面酱', 'rice.png', '2021-07-08 10:00:24', '2021-07-08 10:00:24');
-INSERT INTO `coms_category` VALUES (20, 6, '番茄酱', 'rice.png', '2021-08-13 23:27:11', '2021-08-13 23:27:14');
-INSERT INTO `coms_category` VALUES (21, 6, '鸡精', 'rice.png', '2021-07-08 10:00:24', '2021-07-08 10:00:24');
-INSERT INTO `coms_category` VALUES (22, 6, '大料', 'rice.png', '2021-07-08 10:00:24', '2021-07-08 10:00:24');
-INSERT INTO `coms_category` VALUES (23, 4, '大米', '3e621378-6327-49cf-9a8f-5dd750324793.png', '2021-07-08 10:00:24', '2021-12-08 09:39:54');
-INSERT INTO `coms_category` VALUES (24, 4, '面', '3d3a90b4-529b-4a44-b772-41e9b9c46f1a.png', '2021-07-08 10:00:24', '2021-12-08 09:37:55');
-INSERT INTO `coms_category` VALUES (25, 4, '杂粮', '2947c3f0-5a12-4984-a956-91103c297218.png', '2021-07-08 10:00:24', '2021-12-08 09:39:08');
-INSERT INTO `coms_category` VALUES (26, 4, '豆类', 'fd5f837d-612e-4650-9e09-f580a679ef7f.png', '2021-07-08 10:00:24', '2021-12-08 09:38:20');
-INSERT INTO `coms_category` VALUES (27, 4, '薯类', 'a0896b69-1a4a-4b87-afd2-b9fa33b50fe3.png', '2021-07-08 10:00:24', '2021-12-08 09:38:31');
-INSERT INTO `coms_category` VALUES (28, 8, '牛肉', 'rice.png', '2021-07-12 10:20:57', '2021-07-12 10:21:01');
-INSERT INTO `coms_category` VALUES (29, 8, '猪肉', '17d6e526-21c8-4445-89f1-49678de5c801.png', '2021-07-12 10:25:55', '2021-12-08 09:36:39');
-INSERT INTO `coms_category` VALUES (30, 8, '鸡肉', '252df795-1b4d-41ba-a6ae-14ba5f8ed0a1.png', '2021-07-12 10:26:34', '2021-12-08 09:36:47');
-INSERT INTO `coms_category` VALUES (31, 8, '鸭肉', 'rice.png', '2021-07-12 10:27:16', '2021-07-12 10:27:18');
-INSERT INTO `coms_category` VALUES (32, 8, '鱼肉', 'rice.png', '2021-07-12 10:28:50', '2021-07-12 10:28:50');
-INSERT INTO `coms_category` VALUES (33, 8, '羊肉', 'rice.png', '2021-07-12 10:52:49', '2021-07-12 10:52:52');
-INSERT INTO `coms_category` VALUES (34, 8, '蛋', 'rice.png', '2021-07-12 10:53:58', '2021-07-12 10:54:00');
-INSERT INTO `coms_category` VALUES (35, 8, '冷冻食品', 'rice.png', '2021-07-12 10:57:29', '2021-07-12 10:57:31');
-INSERT INTO `coms_category` VALUES (36, 8, '熟食', 'rice.png', '2021-07-12 11:04:35', '2021-07-12 11:04:35');
-INSERT INTO `coms_category` VALUES (37, 7, '叶菜', 'rice.png', '2021-07-12 11:11:58', '2021-07-12 11:11:58');
-INSERT INTO `coms_category` VALUES (38, 7, '豆芽', 'rice.png', '2021-07-12 11:12:32', '2021-07-12 11:12:32');
-INSERT INTO `coms_category` VALUES (39, 7, '葱蒜', 'rice.png', '2021-07-12 11:13:29', '2021-07-12 11:13:29');
-INSERT INTO `coms_category` VALUES (40, 7, '瓜果', 'rice.png', '2021-07-12 11:15:03', '2021-07-12 11:15:09');
-INSERT INTO `coms_category` VALUES (41, 0, '鸡肉', 'a2e2736c-a1f2-4a96-bd11-0a73fcbc403f.png', '2021-08-14 16:45:52', '2021-12-08 09:40:17');
-INSERT INTO `coms_category` VALUES (42, 41, 'AAA', '83ff9761-32c6-4fd3-b029-5b6b335dfae5.jpg', '2021-08-14 16:46:13', '2021-08-14 16:46:13');
-INSERT INTO `coms_category` VALUES (43, 41, 'BBB', '71014e77-e92a-419f-ace1-7d62b10935f1.jpg', '2021-08-14 16:46:32', '2021-08-14 16:46:32');
-INSERT INTO `coms_category` VALUES (44, 41, 'CCC', '2b2d1bda-1685-45be-8fb2-2c040e462822.jpg', '2021-08-14 16:46:47', '2021-08-14 16:46:47');
-INSERT INTO `coms_category` VALUES (49, 41, '三年级数学', 'be8ea668-4d10-43ba-8df0-f6edd15717f4.jpg', '2021-08-15 16:36:30', '2021-08-15 16:36:30');
 
 -- ----------------------------
 -- Table structure for coms_err_order
@@ -104,7 +77,7 @@ CREATE TABLE `coms_err_order`  (
   `ordeitem_id` int NOT NULL,
   `stall_id` int NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of coms_err_order
@@ -177,7 +150,7 @@ CREATE TABLE `coms_price_list`  (
   `sup_id` int NOT NULL,
   `create_time` datetime NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 24 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 23 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of coms_price_list
@@ -231,12 +204,12 @@ CREATE TABLE `coms_product`  (
 -- ----------------------------
 -- Records of coms_product
 -- ----------------------------
-INSERT INTO `coms_product` VALUES (1, '恒都 澳洲 厚切 肥牛肉片', 222.00, 'test', '2021-07-07', 365, 0, 1, '恒都', 22, '1995f479-42ae-4d27-9991-ae3c693543fc.jpg', '2021-07-08 10:00:24', '2021-07-08 10:00:24');
-INSERT INTO `coms_product` VALUES (2, '新东大盐酥鸡米花鸡块', 24.90, 'test', '2021-06-07', 365, 151, 1, '新东大', 39, '75820170-6381-4ff6-80f3-7270ac4564f7.jpg', '2021-07-08 10:00:24', '2021-07-08 10:00:24');
+INSERT INTO `coms_product` VALUES (1, '恒都 澳洲 厚切 肥牛肉片', 222.00, 'test', '2021-07-07', 365, 0, 1, '恒都', 22, '4a1ba5d8-ffc6-4afb-8576-50f7bdce8428.jpg', '2021-07-08 10:00:24', '2021-07-08 10:00:24');
+INSERT INTO `coms_product` VALUES (2, '新东大盐酥鸡米花鸡块', 24.90, 'test', '2021-06-07', 365, 151, 1, '新东大', 39, '5474c637-b39c-418a-8611-465f2bdeaea9.jpg', '2021-07-08 10:00:24', '2021-07-08 10:00:24');
 INSERT INTO `coms_product` VALUES (3, '安井火锅油条', 9.50, 'test', '2021-05-31', 365, 0, 1, '安井', 39, '492cebef-303f-4367-8384-981dd966de0d.jfif', '2021-07-08 10:00:24', '2021-07-08 10:00:24');
 INSERT INTO `coms_product` VALUES (4, '好记 木桶酿造津味有机老酱油', 7.50, 'test', '2021-06-02', 20, 0, 1, '好记', 39, '8ccd5da9-6262-4862-a5e9-ac606adbfb90.jpg', '2021-07-08 10:00:24', '2021-07-08 10:00:24');
-INSERT INTO `coms_product` VALUES (5, '好自然大白菜', 5.00, 'test', '2021-07-02', 3, 0, 1, '好自然', 41, 'cd75a2cc-5116-4cac-ac0b-342489a3fcc2.jfif', '2021-07-08 10:00:24', '2021-07-08 10:00:24');
-INSERT INTO `coms_product` VALUES (6, '王中王火腿肠', 50.00, 'test', '2021-07-02', 20, 37, 1, '双汇', 40, 'b45ec057-ccc1-4ced-80bf-c5af2b6b207a.jpg', '2021-07-08 10:00:24', '2021-07-08 10:00:24');
+INSERT INTO `coms_product` VALUES (5, '好自然大白菜', 5.00, 'test', '2021-07-02', 3, 0, 1, '好自然', 41, '993f5331-f07a-405d-af7d-7a1abd34583e.jfif', '2021-07-08 10:00:24', '2021-07-08 10:00:24');
+INSERT INTO `coms_product` VALUES (6, '王中王火腿肠', 50.00, 'test', '2021-07-02', 20, 37, 1, '双汇', 40, '993f5331-f07a-405d-af7d-7a1abd34583e.jfif', '2021-07-08 10:00:24', '2021-07-08 10:00:24');
 INSERT INTO `coms_product` VALUES (7, ' 福春园锅包肉', 79.71, 'test', '2021-07-07', 10, 95, 1, ' 福春园', 39, 'a4603234-238a-4e2e-9b62-fa5757855f57.jpg', '2021-07-07 09:21:56', '2021-07-12 11:38:20');
 INSERT INTO `coms_product` VALUES (8, '十月稻田 长粒香 东北大米', 6.80, 'test', '2021-07-07', 180, 61, 0, '十月稻田', 27, 'f0db2433-bf27-4455-95a2-4890dd824ea9.jpg', '2021-07-07 10:00:06', '2021-07-12 11:38:23');
 INSERT INTO `coms_product` VALUES (13, '统一 红烧牛肉面', 15.00, 'test', '2021-07-07', 180, 61, 0, '统一', 28, 'be5f1316-07d1-4696-ac27-fcf728b5680b.jpg', '2021-07-07 18:47:36', '2021-07-12 11:38:25');
@@ -335,19 +308,6 @@ INSERT INTO `coms_sup_category` VALUES (57, 42, 15, 41);
 INSERT INTO `coms_sup_category` VALUES (58, 43, 15, 41);
 INSERT INTO `coms_sup_category` VALUES (59, 44, 15, 41);
 INSERT INTO `coms_sup_category` VALUES (60, 49, 15, 41);
-INSERT INTO `coms_sup_category` VALUES (74, 28, 7, 8);
-INSERT INTO `coms_sup_category` VALUES (75, 29, 7, 8);
-INSERT INTO `coms_sup_category` VALUES (76, 30, 7, 8);
-INSERT INTO `coms_sup_category` VALUES (77, 31, 7, 8);
-INSERT INTO `coms_sup_category` VALUES (78, 32, 7, 8);
-INSERT INTO `coms_sup_category` VALUES (79, 33, 7, 8);
-INSERT INTO `coms_sup_category` VALUES (80, 34, 7, 8);
-INSERT INTO `coms_sup_category` VALUES (81, 35, 7, 8);
-INSERT INTO `coms_sup_category` VALUES (82, 36, 7, 8);
-INSERT INTO `coms_sup_category` VALUES (83, 42, 7, 41);
-INSERT INTO `coms_sup_category` VALUES (84, 43, 7, 41);
-INSERT INTO `coms_sup_category` VALUES (85, 44, 7, 41);
-INSERT INTO `coms_sup_category` VALUES (86, 49, 7, 41);
 INSERT INTO `coms_sup_category` VALUES (100, 23, 13, 4);
 INSERT INTO `coms_sup_category` VALUES (101, 24, 13, 4);
 INSERT INTO `coms_sup_category` VALUES (102, 25, 13, 4);

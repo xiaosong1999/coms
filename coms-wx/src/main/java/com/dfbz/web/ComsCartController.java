@@ -103,7 +103,6 @@ public class ComsCartController {
 //                    cartItem.getProdId()+"==="+(cartItem.getCartId()==product.getId())+"--equals:"+
 //                    cartItem.getProdId().equals(product.getId()));
             if(cartItem.getProdId().equals(product.getId())){
-//                System.out.println("数量加一");
                 cartItem.setNum(cartItem.getNum()+num);
                 cartItemService.update(stall,cartItem);
                 return ResponseUtil.ok();
