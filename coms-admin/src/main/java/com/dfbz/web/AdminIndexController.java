@@ -2,7 +2,6 @@ package com.dfbz.web;
 
 import com.dfbz.domain.ComsOrder;
 import com.dfbz.domain.ComsOrderItem;
-import com.dfbz.service.ComsAdminService;
 import com.dfbz.service.IndexService;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,9 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.annotation.Resource;
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.time.temporal.ChronoUnit;
 import java.util.LinkedHashMap;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
@@ -38,8 +35,7 @@ public class AdminIndexController {
             if(orderItem.getCreateTime().toLocalDate().equals(nowDate)){
                 numCount+=orderItem.getNum();
                 priceCount = priceCount.add(orderItem.getCurrentMoney().multiply(new BigDecimal(orderItem.getNum())));
-//                System.out.println(orderItem.getCurrentMoney().multiply(new BigDecimal(orderItem.getNum())));
-//                System.out.println(priceCount);
+
             }
         }
         BigDecimal[] weekPriceTotal = {new BigDecimal(0),new BigDecimal(0),new BigDecimal(0),

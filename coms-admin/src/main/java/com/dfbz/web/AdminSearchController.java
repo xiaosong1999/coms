@@ -7,7 +7,6 @@ import com.dfbz.dto.OrderItemView;
 import com.dfbz.service.ComsOrderItemService;
 import com.dfbz.service.impl.SearchServiceImpl;
 import com.dfbz.util.ResponseUtil;
-import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.apache.shiro.SecurityUtils;
@@ -21,7 +20,6 @@ import javax.annotation.Resource;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
-import java.util.Map;
 
 
 @RestController
@@ -59,14 +57,7 @@ public class AdminSearchController {
         return ResponseUtil.ok(comsOrders);
     }
 
-    /*    @RequestMapping("/queryOrderItem")
-        public Object queryOrderItem(@RequestBody AppointmentDto appointmentDto){
 
-            PageHelper.startPage(1,12);
-            List<ComsOrderItem> orderItems = orderItemService.queryOrderItems(appointmentDto);
-            PageInfo pageInfo = new PageInfo(orderItems);
-            return ResponseUtil.ok(pageInfo);
-        }*/
     @RequestMapping("/queryOrderItem")
     public Object queryOrderItem(@RequestParam(value = "startDate") String startDate,
                                  @RequestParam(value = "endDate") String endDate,
@@ -90,7 +81,6 @@ public class AdminSearchController {
         LocalDateTime endDateTime = LocalDateTime.parse(endDate, dateTimeFormatter);
 
 
-//        PageHelper.startPage(pageNum, pageSize);
 
         List<ComsOrderItem> comsOrderItems = orderItemService.queryOrderItems(startDateTime, endDateTime, supId);
 

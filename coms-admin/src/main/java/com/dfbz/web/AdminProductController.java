@@ -54,11 +54,12 @@ public class AdminProductController {
         return mv;
     }
 
-    /**
+    /***
      * 根据输入内容进行模糊查询
-     * @param pageNum
-     * @param pageSize
-     * @return
+     * @param pageNum 页数
+     * @param pageSize 每页显示内容数
+     * @param prodName 产品名
+     * @return 模糊查找结果
      */
     @GetMapping("/product/queryByName")
     public Object queryByName(@RequestParam(value = "pageNum", required = false, defaultValue = "1")Integer pageNum,
@@ -66,8 +67,8 @@ public class AdminProductController {
                                     @RequestParam(value = "prodName", required = false, defaultValue = "")String prodName){
         PageHelper.startPage(pageNum,pageSize);
         List<ComsProduct> products = null;
-        if(prodName.equals("")||prodName.trim().length()==0){
-            products = productService.listAll();;
+        if(prodName.isEmpty()||prodName.trim().length()==0){
+            products = productService.listAll();
         }else{
             products = productService.queryProductByName(prodName);
         }
@@ -182,7 +183,6 @@ public class AdminProductController {
     public Object insert(@RequestBody ComsProduct product){
         product.setPicUrl(picName);
         picName = null;
-//        System.out.println(product);
         Integer result = productService.add(product);
         if(result<0){
             return ResponseUtil.fail();
