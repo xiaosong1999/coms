@@ -1,6 +1,5 @@
 package com.dfbz.web;
 
-import com.dfbz.dao.ComsOrderMapper;
 import com.dfbz.domain.*;
 import com.dfbz.dto.AppointmentDto;
 import com.dfbz.dto.OrderItemView;
@@ -28,9 +27,6 @@ public class AdminSearchController {
 
     @Resource
     private SearchServiceImpl searchService;
-
-    @Resource
-    private ComsOrderMapper orderMapper;
 
     @Resource
     private ComsOrderItemService orderItemService;
