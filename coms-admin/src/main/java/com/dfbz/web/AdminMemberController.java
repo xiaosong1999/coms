@@ -1,6 +1,7 @@
 package com.dfbz.web;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.dfbz.dao.ComsAdminMapper;
 import com.dfbz.dao.ComsStallMapper;
@@ -301,9 +302,13 @@ public class AdminMemberController {
         supplier.setStatus(Integer.parseInt(objJson.get("status").toString()));
         memberService.editSupplier(supplier);
         supCateService.removeBySupId(supplier.getId());
-        System.out.println("==========================="+objJson.get("category"));
-        List<String> cates = (List<String>) objJson.get("category");
-
+        List<String> cates=null;
+        if (objJson.get("category").toString().indexOf("[") == -1) {
+            String tmp="["+objJson.get("category").toString()+"]";
+            cates= JSONArray.parseArray(tmp,String.class);
+        }else {
+            cates = (List<String>) objJson.get("category");
+        }
 //        for(String cate:cates){
 //            System.out.println(cate);
 //            System.out.println(Integer.parseInt(cate));
