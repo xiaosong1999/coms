@@ -229,7 +229,9 @@
                               <td>
                                 <div class="btn-group">
                                   <button class="btn btn-xs btn-default edit" title="编辑" href="javascript:void(0)" th:value="${admin}" th:onclick="edit(this)" data-toggle="tooltip"><i class="mdi mdi-pencil"></i></button>
+<!--
                                   <a class="btn btn-xs btn-default" title="删除" th:onclick="remove([[${admin.id}]],[[${pageInfo.getPageNum()}]],[[${pageInfo.getSize()}]])" href="javascript:void(0)" data-toggle="tooltip"><i class="mdi mdi-window-close"></i></a>
+-->
                                 </div>
                               </td>
                             </tr>
@@ -307,6 +309,9 @@
     $("#admin_password").val("");
     $("#admin_name").val("");
     $("#admin_type").val("");
+
+
+
     var adminData = $(obj).val();
     // var arr = ['createTime','updateTime'];
     // var replaceAttrsJson = {'id':'编号','icon':'图标'};
@@ -335,7 +340,7 @@
       window.location.href = url;
     },reflushTime)
   }
-  function remove(adminId,pageNum,pageSize){
+/*  function remove(adminId,pageNum,pageSize){
 
     console.log("adminId:"+adminId+";pageNum:"+pageNum+";pageSize:"+pageSize);
     if(pageSize==1&&pageNum!=1){
@@ -375,7 +380,7 @@
     }
 
 
-  }
+  }*/
 
 $(function(){
 
