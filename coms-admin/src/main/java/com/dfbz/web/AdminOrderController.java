@@ -211,7 +211,7 @@ public class AdminOrderController {
 
         //excel导出路径
         ComsSupplier sup_temp = supplierService.findById(supId);
-        String filePath = "/root/export/"+ sup_temp.getName() + "_" + startDate + "至" + endDate + "_" + dateTime + ".xlsx";
+        String filePath = sup_temp.getName() + "_" + startDate + "至" + endDate + "_" + dateTime + ".xlsx";
 
         String[] split = startDate.split("-");
         String[] split1 = endDate.split("-");
