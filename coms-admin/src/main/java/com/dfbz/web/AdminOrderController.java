@@ -95,7 +95,7 @@ public class AdminOrderController {
      * @param pageSize
      * @return
      */
-    @GetMapping("/order/orderAllItem")
+    @GetMapping("/order/allOrderItem")
     public Object getAllOrderList(
             @RequestParam(value = "pageNum", required = false, defaultValue = "1") Integer pageNum,
             @RequestParam(value = "pageSize", required = false, defaultValue = DEFAULT_PAGE_SIZE) Integer pageSize) {
