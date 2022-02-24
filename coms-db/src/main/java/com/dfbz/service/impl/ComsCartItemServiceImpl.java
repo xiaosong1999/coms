@@ -89,7 +89,8 @@ public class ComsCartItemServiceImpl implements ComsCartItemService {
         ComsCartItem cartItem = new ComsCartItem();
         cartItem.setAddTime(LocalDateTime.now());
         cartItem.setNum(num);
-        cartItem.setId(Integer.parseInt(fixToCartItemCode(new Date())));
+
+        cartItem.setId((int)new Date().getTime());
 //        System.out.println(fixToCartItemCode(new Date()));
         cartItem.setPicUrl(product.getPicUrl());
         cartItem.setPrice(product.getPrice());
