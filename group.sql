@@ -11,7 +11,7 @@
  Target Server Version : 80026
  File Encoding         : 65001
 
- Date: 25/02/2022 14:45:29
+ Date: 18/03/2022 15:30:11
 */
 
 SET NAMES utf8mb4;
@@ -150,7 +150,7 @@ CREATE TABLE `coms_order`  (
   `sup_id` int NOT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `fid_order_stall`(`stall_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 464 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 466 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of coms_order
@@ -330,12 +330,11 @@ CREATE TABLE `coms_order_item`  (
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `fid_orderitem_prod`(`prod_id`) USING BTREE,
   INDEX `fid_orderitem_order`(`order_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 388 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 390 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of coms_order_item
 -- ----------------------------
-INSERT INTO `coms_order_item` VALUES (107, 15, 154, 222.00, 5, '油麦菜', 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg.yzcdn.cn%2Fupload_files%2F2018%2F03%2F21%2FFuxCCcDErMkUv5KNv-gZfV2LGPaY.jpg%21730x0.jpg&refer=http%3A%2F%2Fimg.yzcdn.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1628652938&t=baaa08d7e2f91af49c441c5e7879e88d', '2021-07-12 15:57:17', '2021-07-12 15:57:17');
 INSERT INTO `coms_order_item` VALUES (108, 13, 155, 15.00, 3, '红烧牛肉方便面', 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg.alicdn.com%2Fi2%2F749584932%2FO1CN012lGspN1mItytsH0iM_%21%21749584932.jpg&refer=http%3A%2F%2Fimg.alicdn.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1628652898&t=cf1177d894aa214d7478ed88d91823f1', '2021-07-12 16:03:18', '2021-07-12 16:03:18');
 INSERT INTO `coms_order_item` VALUES (185, 3, 226, 9.50, 1, '安井火锅油条', 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg.pconline.com.cn%2Fimages%2Fupload%2Fupc%2Ftx%2Fpc_best%2F1809%2F17%2Fc57%2F109939120_1537176947197.jpg&refer=http%3A%2F%2Fimg.pconline.com.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1628652549&t=d9edcbc38a792ad147896059126b4e90', '2021-07-13 14:00:44', '2021-07-13 14:00:44');
 INSERT INTO `coms_order_item` VALUES (186, 1, 227, 222.00, 1, '合兆耗油肉片', 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fcbu01.alicdn.com%2Fimg%2Fibank%2F2018%2F894%2F582%2F9361285498_877391837.jpg&refer=http%3A%2F%2Fcbu01.alicdn.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1628648175&t=022b2716fd593c4253330837c6667c66', '2021-07-13 14:03:46', '2021-07-13 14:03:46');
@@ -374,7 +373,6 @@ INSERT INTO `coms_order_item` VALUES (226, 5, 276, 5.00, 3, '好自然大白菜'
 INSERT INTO `coms_order_item` VALUES (227, 16, 274, 15.00, 1, '大米AA', 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F01532e58bfb859a801219c77674a26.jpg%403000w_1l_0o_100sh.jpg&refer=http%3A%2F%2Fimg.zcool.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1628652974&t=d8e0b6a0c2c1d456979f113980ec53e8', '2021-08-08 22:49:03', '2021-08-08 22:49:03');
 INSERT INTO `coms_order_item` VALUES (228, 4, 277, 7.50, 2, '景泰隆津味', 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fseopic.699pic.com%2Fphoto%2F50050%2F7111.jpg_wh1200.jpg&refer=http%3A%2F%2Fseopic.699pic.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1628769774&t=1d57ce3c013adf907e1b76e47b7f987e', '2021-08-09 00:01:13', '2021-08-09 00:01:13');
 INSERT INTO `coms_order_item` VALUES (229, 13, 278, 15.00, 3, '红烧牛肉方便面', 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg.alicdn.com%2Fi2%2F749584932%2FO1CN012lGspN1mItytsH0iM_%21%21749584932.jpg&refer=http%3A%2F%2Fimg.alicdn.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1628652898&t=cf1177d894aa214d7478ed88d91823f1', '2021-08-09 00:01:13', '2021-08-09 00:01:13');
-INSERT INTO `coms_order_item` VALUES (230, 15, 279, 222.00, 2, '油麦菜', 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg.yzcdn.cn%2Fupload_files%2F2018%2F03%2F21%2FFuxCCcDErMkUv5KNv-gZfV2LGPaY.jpg%21730x0.jpg&refer=http%3A%2F%2Fimg.yzcdn.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1628652938&t=baaa08d7e2f91af49c441c5e7879e88d', '2021-08-09 00:01:13', '2021-08-09 00:01:13');
 INSERT INTO `coms_order_item` VALUES (231, 5, 283, 5.00, 2, '好自然大白菜', 'bbaa09d7-0aa2-4944-8e94-ed02afba0394R-C (1).jfif', '2021-08-10 00:35:11', '2021-08-10 00:35:11');
 INSERT INTO `coms_order_item` VALUES (232, 13, 284, 15.00, 3, '红烧牛肉方便面', 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg.alicdn.com%2Fi2%2F749584932%2FO1CN012lGspN1mItytsH0iM_%21%21749584932.jpg&refer=http%3A%2F%2Fimg.alicdn.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1628652898&t=cf1177d894aa214d7478ed88d91823f1', '2021-08-10 00:35:11', '2021-08-10 00:35:11');
 INSERT INTO `coms_order_item` VALUES (233, 26, 285, 129.00, 1, '大希地 精品盒装国产整切西冷牛排套餐含酱包共750g（130g*5片+酱包20g*5包） 牛扒 优质牧场牛肉生鲜', 'e032716f-587e-43b4-b212-5dae271c5d7160564fb8af5f81c8.jpg', '2021-08-10 00:35:59', '2021-08-10 00:35:59');
@@ -462,7 +460,6 @@ INSERT INTO `coms_order_item` VALUES (314, 4, 346, 7.50, 2, '好记 木桶酿造
 INSERT INTO `coms_order_item` VALUES (315, 3, 346, 10.50, 1, '安井火锅油条', '993f5331-f07a-405d-af7d-7a1abd34583e.jfif', '2021-08-31 16:25:20', '2021-08-31 16:25:20');
 INSERT INTO `coms_order_item` VALUES (316, 4, 347, 8.90, 1, '好记 木桶酿造津味有机老酱油', 'a4ecd0f4-a47f-4fc7-af31-030998308c54.jpg', '2021-08-31 17:07:16', '2021-08-31 17:07:16');
 INSERT INTO `coms_order_item` VALUES (317, 3, 348, 10.50, 1, '安井火锅油条', '993f5331-f07a-405d-af7d-7a1abd34583e.jfif', '2021-08-31 17:07:53', '2021-08-31 17:07:53');
-INSERT INTO `coms_order_item` VALUES (318, 13, 349, 15.00, 1, '统一 红烧牛肉面', 'feaf95fb-9816-4a92-8a9e-98906b4bf98a.jpg', '2021-08-31 17:07:53', '2021-08-31 17:07:53');
 INSERT INTO `coms_order_item` VALUES (319, 14, 349, 5.50, 1, '柴火大院 长粒香 东北大米', '2373e76d-48ad-4f7d-8040-88b0ff5c3890.jpg', '2021-08-31 17:07:54', '2021-08-31 17:07:54');
 INSERT INTO `coms_order_item` VALUES (320, 3, 350, 10.50, 2, '安井火锅油条', '993f5331-f07a-405d-af7d-7a1abd34583e.jfif', '2021-09-01 14:22:08', '2021-09-01 14:22:08');
 INSERT INTO `coms_order_item` VALUES (321, 2, 351, 24.90, 1, '新东大盐酥鸡米花鸡块', '75820170-6381-4ff6-80f3-7270ac4564f7.jpg', '2021-09-01 14:25:08', '2021-09-01 14:25:08');
@@ -487,45 +484,37 @@ INSERT INTO `coms_order_item` VALUES (339, 2, 366, 24.90, 1, '新东大盐酥鸡
 INSERT INTO `coms_order_item` VALUES (340, 6, 366, 50.00, 1, '王中王火腿肠', '32f2c955-ccf7-4285-9c88-2418cc60112c.jpg', '2021-09-04 10:37:49', '2021-09-04 10:37:49');
 INSERT INTO `coms_order_item` VALUES (341, 26, 366, 129.00, 1, '大希地 精品盒装国产整切西冷牛排套餐含酱包共750g（130g*5片+酱包20g*5包） 牛扒 优质牧场牛肉生鲜', 'ce773cf7-c9fc-4750-b3c5-115a5d311296.png', '2021-09-04 10:37:49', '2021-09-04 10:37:49');
 INSERT INTO `coms_order_item` VALUES (342, 4, 367, 8.90, 1, '好记 木桶酿造津味有机老酱油', 'a4ecd0f4-a47f-4fc7-af31-030998308c54.jpg', '2021-09-04 10:38:18', '2021-09-04 10:38:18');
-INSERT INTO `coms_order_item` VALUES (343, 13, 368, 15.00, 1, '统一 红烧牛肉面', 'feaf95fb-9816-4a92-8a9e-98906b4bf98a.jpg', '2021-09-05 16:49:53', '2021-09-05 16:49:53');
 INSERT INTO `coms_order_item` VALUES (344, 28, 369, 12.00, 1, '味精111', 'b3a26c71-4a28-474e-94a3-43638bf62723.jpg', '2021-09-05 16:49:53', '2021-09-05 16:49:53');
 INSERT INTO `coms_order_item` VALUES (345, 21, 370, 15.00, 4, '太太乐鸡精', 'e4957851-0b1d-4a88-b33e-087e02d8cf22.jpg', '2021-09-05 17:29:46', '2021-09-05 17:29:46');
-INSERT INTO `coms_order_item` VALUES (346, 13, 371, 15.00, 2, '统一 红烧牛肉面', 'feaf95fb-9816-4a92-8a9e-98906b4bf98a.jpg', '2021-09-06 08:34:18', '2021-09-06 08:34:18');
 INSERT INTO `coms_order_item` VALUES (347, 8, 372, 6.60, 1, '十月稻田 长粒香 东北大米', '34edc0d1-2fa7-4025-89e7-71d88ae1c4f0.jpg', '2021-09-06 09:39:28', '2021-09-06 09:39:28');
 INSERT INTO `coms_order_item` VALUES (348, 21, 373, 15.00, 2, '太太乐鸡精', 'e4957851-0b1d-4a88-b33e-087e02d8cf22.jpg', '2021-09-06 09:39:28', '2021-09-06 09:39:28');
 INSERT INTO `coms_order_item` VALUES (349, 3, 374, 10.50, 1, '安井火锅油条', '993f5331-f07a-405d-af7d-7a1abd34583e.jfif', '2021-09-06 16:06:57', '2021-09-06 16:06:57');
 INSERT INTO `coms_order_item` VALUES (350, 14, 375, 5.50, 3, '柴火大院 长粒香 东北大米', '2373e76d-48ad-4f7d-8040-88b0ff5c3890.jpg', '2021-09-06 18:05:29', '2021-09-06 18:05:29');
 INSERT INTO `coms_order_item` VALUES (351, 14, 376, 5.50, 3, '柴火大院 长粒香 东北大米', '2373e76d-48ad-4f7d-8040-88b0ff5c3890.jpg', '2021-09-06 19:50:35', '2021-09-06 19:50:35');
-INSERT INTO `coms_order_item` VALUES (352, 13, 404, 26.00, 5, '统一 红烧牛肉面', 'feaf95fb-9816-4a92-8a9e-98906b4bf98a.jpg', '2021-09-07 14:52:02', '2021-09-07 14:52:02');
 INSERT INTO `coms_order_item` VALUES (353, 22, 415, 0.80, 3, '太太乐味精', 'fe003c97-262e-4aea-9ae6-10ca3af9c38e.jpg', '2021-09-07 15:51:33', '2021-09-07 15:51:33');
 INSERT INTO `coms_order_item` VALUES (354, 4, 416, 18.90, 2, '好记 木桶酿造津味有机老酱油', 'a4ecd0f4-a47f-4fc7-af31-030998308c54.jpg', '2021-09-07 15:51:33', '2021-09-07 15:51:33');
 INSERT INTO `coms_order_item` VALUES (355, 22, 417, 0.80, 3, '太太乐味精', 'fe003c97-262e-4aea-9ae6-10ca3af9c38e.jpg', '2021-09-07 15:57:32', '2021-09-07 15:57:32');
 INSERT INTO `coms_order_item` VALUES (357, 26, 433, 129.00, 1, '大希地 精品盒装国产整切西冷牛排套餐含酱包共750g（130g*5片+酱包20g*5包） 牛扒 优质牧场牛肉生鲜', 'ce773cf7-c9fc-4750-b3c5-115a5d311296.png', '2021-09-07 16:24:03', '2021-09-07 16:24:03');
 INSERT INTO `coms_order_item` VALUES (358, 7, 433, 79.71, 1, ' 福春园锅包肉', '5cc5194a-59a9-42f4-a2e1-75df095e5d90.jpg', '2021-09-07 16:24:03', '2021-09-07 16:24:03');
 INSERT INTO `coms_order_item` VALUES (359, 27, 434, 22.00, 1, '大棚油麦菜', 'b3e14f4b-7893-4873-87c1-e851b5099669.jfif', '2021-09-08 08:35:15', '2021-09-08 08:35:15');
-INSERT INTO `coms_order_item` VALUES (360, 13, 435, 26.00, 1, '统一 红烧牛肉面', 'feaf95fb-9816-4a92-8a9e-98906b4bf98a.jpg', '2021-09-08 08:35:15', '2021-09-08 08:35:15');
 INSERT INTO `coms_order_item` VALUES (361, 4, 436, 18.90, 1, '好记 木桶酿造津味有机老酱油', 'a4ecd0f4-a47f-4fc7-af31-030998308c54.jpg', '2021-09-08 15:07:12', '2021-09-08 15:07:12');
 INSERT INTO `coms_order_item` VALUES (362, 3, 436, 10.50, 1, '安井火锅油条', '993f5331-f07a-405d-af7d-7a1abd34583e.jfif', '2021-09-08 15:07:12', '2021-09-08 15:07:12');
 INSERT INTO `coms_order_item` VALUES (363, 28, 437, 12.00, 1, '味精111', 'b3a26c71-4a28-474e-94a3-43638bf62723.jpg', '2021-09-08 15:07:12', '2021-09-08 15:07:12');
 INSERT INTO `coms_order_item` VALUES (364, 26, 436, 129.00, 1, '大希地 精品盒装国产整切西冷牛排套餐含酱包共750g（130g*5片+酱包20g*5包） 牛扒 优质牧场牛肉生鲜', 'ce773cf7-c9fc-4750-b3c5-115a5d311296.png', '2021-09-08 15:07:12', '2021-09-08 15:07:12');
 INSERT INTO `coms_order_item` VALUES (366, 4, 439, 18.90, 1, '好记 木桶酿造津味有机老酱油', 'a4ecd0f4-a47f-4fc7-af31-030998308c54.jpg', '2021-09-08 19:35:04', '2021-09-08 19:35:04');
-INSERT INTO `coms_order_item` VALUES (367, 13, 440, 26.00, 9, '统一 红烧牛肉面', 'feaf95fb-9816-4a92-8a9e-98906b4bf98a.jpg', '2021-09-08 21:31:48', '2021-09-08 21:31:48');
 INSERT INTO `coms_order_item` VALUES (368, 27, 441, 22.00, 1, '大棚油麦菜', 'b3e14f4b-7893-4873-87c1-e851b5099669.jfif', '2021-09-09 08:35:12', '2021-09-09 08:35:12');
 INSERT INTO `coms_order_item` VALUES (369, 14, 442, 5.50, 2, '柴火大院 长粒香 东北大米', '2373e76d-48ad-4f7d-8040-88b0ff5c3890.jpg', '2021-09-09 08:38:34', '2021-09-09 08:38:34');
 INSERT INTO `coms_order_item` VALUES (370, 16, 442, 15.00, 1, '三人行 金奖长粒香东北大米', '2aac87bf-495b-4ba7-85b8-232ba6ea9420.jpg', '2021-09-09 08:38:34', '2021-09-09 08:38:34');
 INSERT INTO `coms_order_item` VALUES (371, 8, 443, 6.60, 1, '十月稻田 长粒香 东北大米', '34edc0d1-2fa7-4025-89e7-71d88ae1c4f0.jpg', '2021-09-09 08:53:15', '2021-09-09 08:53:15');
-INSERT INTO `coms_order_item` VALUES (372, 13, 444, 26.00, 1, '统一 红烧牛肉面', 'feaf95fb-9816-4a92-8a9e-98906b4bf98a.jpg', '2021-09-10 09:25:27', '2021-09-10 09:25:27');
 INSERT INTO `coms_order_item` VALUES (373, 7, 445, 79.71, 1, ' 福春园锅包肉', '5cc5194a-59a9-42f4-a2e1-75df095e5d90.jpg', '2021-09-10 09:45:40', '2021-09-10 09:45:40');
 INSERT INTO `coms_order_item` VALUES (374, 27, 446, 22.00, 1, '大棚油麦菜', 'b3e14f4b-7893-4873-87c1-e851b5099669.jfif', '2021-09-10 09:45:40', '2021-09-10 09:45:40');
 INSERT INTO `coms_order_item` VALUES (375, 26, 447, 129.00, 1, '大希地 精品盒装国产整切西冷牛排套餐含酱包共750g（130g*5片+酱包20g*5包） 牛扒 优质牧场牛肉生鲜', 'ce773cf7-c9fc-4750-b3c5-115a5d311296.png', '2021-09-10 09:52:13', '2021-09-10 09:52:13');
 INSERT INTO `coms_order_item` VALUES (376, 8, 448, 6.60, 1, '十月稻田 长粒香 东北大米', '34edc0d1-2fa7-4025-89e7-71d88ae1c4f0.jpg', '2021-09-10 09:52:13', '2021-09-10 09:52:13');
 INSERT INTO `coms_order_item` VALUES (377, 7, 447, 79.71, 1, ' 福春园锅包肉', '5cc5194a-59a9-42f4-a2e1-75df095e5d90.jpg', '2021-09-10 09:52:13', '2021-09-10 09:52:13');
-INSERT INTO `coms_order_item` VALUES (378, 13, 448, 26.00, 1, '统一 红烧牛肉面', 'feaf95fb-9816-4a92-8a9e-98906b4bf98a.jpg', '2021-09-10 09:52:13', '2021-09-10 09:52:13');
 INSERT INTO `coms_order_item` VALUES (379, 27, 449, 22.00, 1, '大棚油麦菜', 'b3e14f4b-7893-4873-87c1-e851b5099669.jfif', '2021-09-10 09:52:13', '2021-09-10 09:52:13');
 INSERT INTO `coms_order_item` VALUES (380, 27, 450, 22.00, 1, '大棚油麦菜', 'b3e14f4b-7893-4873-87c1-e851b5099669.jfif', '2021-09-10 09:52:43', '2021-09-10 09:52:43');
 INSERT INTO `coms_order_item` VALUES (381, 8, 458, 6.60, 1, '十月稻田 长粒香 东北大米', '34edc0d1-2fa7-4025-89e7-71d88ae1c4f0.jpg', '2021-09-10 10:23:45', '2021-09-10 10:23:45');
 INSERT INTO `coms_order_item` VALUES (382, 6, 459, 50.00, 1, '王中王火腿肠', '32f2c955-ccf7-4285-9c88-2418cc60112c.jpg', '2021-09-10 10:23:45', '2021-09-10 10:23:45');
-INSERT INTO `coms_order_item` VALUES (383, 13, 458, 26.00, 2, '统一 红烧牛肉面', 'feaf95fb-9816-4a92-8a9e-98906b4bf98a.jpg', '2021-09-10 10:23:45', '2021-09-10 10:23:45');
 INSERT INTO `coms_order_item` VALUES (384, 28, 460, 12.00, 1, '味精111', 'b3a26c71-4a28-474e-94a3-43638bf62723.jpg', '2021-09-10 10:23:45', '2021-09-10 10:23:45');
 INSERT INTO `coms_order_item` VALUES (385, 24, 461, 9.90, 3, '梅花味精', '81f830fd-3846-4cd8-a08f-ea82058d559e.jpg', '2021-09-10 11:16:04', '2021-09-10 11:16:04');
 INSERT INTO `coms_order_item` VALUES (386, 4, 462, 18.90, 1, '好记 木桶酿造津味有机老酱油', 'a4ecd0f4-a47f-4fc7-af31-030998308c54.jpg', '2021-09-10 11:16:04', '2021-09-10 11:16:04');
@@ -617,77 +606,6 @@ INSERT INTO `coms_product` VALUES (26, '大希地 精品盒装国产整切西冷
 INSERT INTO `coms_product` VALUES (27, '大棚油麦菜', 22.00, '/件', '2021-07-07', 3, 71, 1, '大棚集团', 41, 'b3e14f4b-7893-4873-87c1-e851b5099669.jfif', '2021-08-10 00:23:02', '2021-08-10 00:23:02');
 INSERT INTO `coms_product` VALUES (28, '味精111', 12.00, '/件', '2021-08-21', 21, 196, 1, '味精111', 21, 'b3a26c71-4a28-474e-94a3-43638bf62723.jpg', '2021-08-30 09:46:49', '2021-08-30 09:46:49');
 INSERT INTO `coms_product` VALUES (29, '123', 15.00, '/件', '2021-09-04', 123, 100, 0, '123', 26, '2fa86a81-20c6-437b-b2eb-bd728be598be.png', '2021-09-04 08:33:07', '2021-09-04 08:33:07');
-INSERT INTO `coms_product` VALUES (30, 'asd', 1.00, '/件', '2021-09-05', 1, 100, 1, 'dd', NULL, 'a4ecd0f4-a47f-4fc7-af31-030998308c54.jpg', NULL, NULL);
-INSERT INTO `coms_product` VALUES (31, 'asd', 2.00, NULL, '2021-09-05', 1, 100, 0, 'dd', NULL, 'e4957851-0b1d-4a88-b33e-087e02d8cf22.jpg', NULL, NULL);
-INSERT INTO `coms_product` VALUES (32, 'asd', 3.00, NULL, '2021-09-05', 1, 100, 0, 'dd', NULL, 'a4ecd0f4-a47f-4fc7-af31-030998308c54.jpg', NULL, NULL);
-INSERT INTO `coms_product` VALUES (33, 'asd', 4.00, NULL, '2021-09-05', 1, 100, 0, 'dd', NULL, '32f2c955-ccf7-4285-9c88-2418cc60112c.jpg', NULL, NULL);
-INSERT INTO `coms_product` VALUES (34, 'asd', 5.00, NULL, '2021-09-05', 1, 100, 0, 'dd', NULL, 'a4ecd0f4-a47f-4fc7-af31-030998308c54.jpg', NULL, NULL);
-INSERT INTO `coms_product` VALUES (35, 'asd', 6.00, NULL, '2021-09-05', 1, 100, 0, 'dd', NULL, '4a1ba5d8-ffc6-4afb-8576-50f7bdce8428.jpg', NULL, NULL);
-INSERT INTO `coms_product` VALUES (36, 'asd', 7.00, NULL, '2021-09-05', 1, 100, 0, 'dd', NULL, 'a4ecd0f4-a47f-4fc7-af31-030998308c54.jpg', NULL, NULL);
-INSERT INTO `coms_product` VALUES (37, 'asd', 8.00, NULL, '2021-09-05', 1, 100, 0, 'dd', NULL, '32f2c955-ccf7-4285-9c88-2418cc60112c.jpg', NULL, NULL);
-INSERT INTO `coms_product` VALUES (38, 'asd', 9.00, NULL, '2021-09-05', 1, 100, 0, 'dd', NULL, 'a4ecd0f4-a47f-4fc7-af31-030998308c54.jpg', NULL, NULL);
-INSERT INTO `coms_product` VALUES (39, 'asd', 10.00, NULL, '2021-09-05', 1, 100, 0, 'dd', NULL, 'e4957851-0b1d-4a88-b33e-087e02d8cf22.jpg', NULL, NULL);
-INSERT INTO `coms_product` VALUES (40, 'asd', 11.00, NULL, '2021-09-05', 1, 100, 0, 'dd', NULL, 'a4ecd0f4-a47f-4fc7-af31-030998308c54.jpg', NULL, NULL);
-INSERT INTO `coms_product` VALUES (41, 'asd', 12.00, NULL, '2021-09-05', 1, 100, 0, 'dd', NULL, '32f2c955-ccf7-4285-9c88-2418cc60112c.jpg', NULL, NULL);
-INSERT INTO `coms_product` VALUES (42, 'asd', 13.00, NULL, '2021-09-05', 1, 100, 0, 'dd', NULL, 'a4ecd0f4-a47f-4fc7-af31-030998308c54.jpg', NULL, NULL);
-INSERT INTO `coms_product` VALUES (43, 'asd', 14.00, NULL, '2021-09-05', 1, 100, 0, 'dd', NULL, '4a1ba5d8-ffc6-4afb-8576-50f7bdce8428.jpg', NULL, NULL);
-INSERT INTO `coms_product` VALUES (44, 'asd', 15.00, NULL, '2021-09-05', 1, 100, 0, 'dd', NULL, 'a4ecd0f4-a47f-4fc7-af31-030998308c54.jpg', NULL, NULL);
-INSERT INTO `coms_product` VALUES (45, 'asd', 16.00, NULL, '2021-09-05', 1, 100, 0, 'dd', NULL, '32f2c955-ccf7-4285-9c88-2418cc60112c.jpg', NULL, NULL);
-INSERT INTO `coms_product` VALUES (46, 'asd', 17.00, NULL, '2021-09-05', 1, 100, 0, 'dd', NULL, 'a4ecd0f4-a47f-4fc7-af31-030998308c54.jpg', NULL, NULL);
-INSERT INTO `coms_product` VALUES (47, 'asd', 18.00, NULL, '2021-09-05', 1, 100, 0, 'dd', NULL, 'e4957851-0b1d-4a88-b33e-087e02d8cf22.jpg', NULL, NULL);
-INSERT INTO `coms_product` VALUES (48, 'asd', 19.00, NULL, '2021-09-05', 1, 100, 0, 'dd', NULL, 'a4ecd0f4-a47f-4fc7-af31-030998308c54.jpg', NULL, NULL);
-INSERT INTO `coms_product` VALUES (49, 'asd', 20.00, NULL, '2021-09-05', 1, 100, 0, 'dd', NULL, '32f2c955-ccf7-4285-9c88-2418cc60112c.jpg', NULL, NULL);
-INSERT INTO `coms_product` VALUES (50, 'asd', 21.00, NULL, '2021-09-05', 1, 100, 0, 'dd', NULL, 'a4ecd0f4-a47f-4fc7-af31-030998308c54.jpg', NULL, NULL);
-INSERT INTO `coms_product` VALUES (51, 'asd', 22.00, NULL, '2021-09-05', 1, 100, 0, 'dd', NULL, '4a1ba5d8-ffc6-4afb-8576-50f7bdce8428.jpg', NULL, NULL);
-INSERT INTO `coms_product` VALUES (52, 'asd', 23.00, NULL, '2021-09-05', 1, 100, 0, 'dd', NULL, 'a4ecd0f4-a47f-4fc7-af31-030998308c54.jpg', NULL, NULL);
-INSERT INTO `coms_product` VALUES (53, 'asd', 24.00, NULL, '2021-09-05', 1, 100, 0, 'dd', NULL, '32f2c955-ccf7-4285-9c88-2418cc60112c.jpg', NULL, NULL);
-INSERT INTO `coms_product` VALUES (54, 'asd', 25.00, NULL, '2021-09-05', 1, 100, 0, 'dd', NULL, 'a4ecd0f4-a47f-4fc7-af31-030998308c54.jpg', NULL, NULL);
-INSERT INTO `coms_product` VALUES (55, 'asd', 26.00, NULL, '2021-09-05', 1, 100, 0, 'dd', NULL, 'e4957851-0b1d-4a88-b33e-087e02d8cf22.jpg', NULL, NULL);
-INSERT INTO `coms_product` VALUES (56, 'asd', 27.00, NULL, '2021-09-05', 1, 100, 0, 'dd', NULL, 'a4ecd0f4-a47f-4fc7-af31-030998308c54.jpg', NULL, NULL);
-INSERT INTO `coms_product` VALUES (57, 'asd', 28.00, NULL, '2021-09-05', 1, 100, 0, 'dd', NULL, '32f2c955-ccf7-4285-9c88-2418cc60112c.jpg', NULL, NULL);
-INSERT INTO `coms_product` VALUES (58, 'asd', 29.00, NULL, '2021-09-05', 1, 100, 0, 'dd', NULL, 'a4ecd0f4-a47f-4fc7-af31-030998308c54.jpg', NULL, NULL);
-INSERT INTO `coms_product` VALUES (59, 'asd', 30.00, NULL, '2021-09-05', 1, 100, 0, 'dd', NULL, '4a1ba5d8-ffc6-4afb-8576-50f7bdce8428.jpg', NULL, NULL);
-INSERT INTO `coms_product` VALUES (60, 'asd', 31.00, NULL, '2021-09-05', 1, 100, 0, 'dd', NULL, 'a4ecd0f4-a47f-4fc7-af31-030998308c54.jpg', NULL, NULL);
-INSERT INTO `coms_product` VALUES (61, 'asd', 32.00, NULL, '2021-09-05', 1, 100, 0, 'dd', NULL, '32f2c955-ccf7-4285-9c88-2418cc60112c.jpg', NULL, NULL);
-INSERT INTO `coms_product` VALUES (62, 'asd', 33.00, NULL, '2021-09-05', 1, 100, 0, 'dd', NULL, 'a4ecd0f4-a47f-4fc7-af31-030998308c54.jpg', NULL, NULL);
-INSERT INTO `coms_product` VALUES (63, 'asd', 34.00, NULL, '2021-09-05', 1, 100, 0, 'dd', NULL, 'e4957851-0b1d-4a88-b33e-087e02d8cf22.jpg', NULL, NULL);
-INSERT INTO `coms_product` VALUES (64, 'asd', 35.00, NULL, '2021-09-05', 1, 100, 0, 'dd', NULL, 'a4ecd0f4-a47f-4fc7-af31-030998308c54.jpg', NULL, NULL);
-INSERT INTO `coms_product` VALUES (65, 'asd', 36.00, NULL, '2021-09-05', 1, 100, 0, 'dd', NULL, '32f2c955-ccf7-4285-9c88-2418cc60112c.jpg', NULL, NULL);
-INSERT INTO `coms_product` VALUES (66, 'asd', 37.00, NULL, '2021-09-05', 1, 100, 0, 'dd', NULL, 'a4ecd0f4-a47f-4fc7-af31-030998308c54.jpg', NULL, NULL);
-INSERT INTO `coms_product` VALUES (67, 'asd', 38.00, NULL, '2021-09-05', 1, 100, 0, 'dd', NULL, '4a1ba5d8-ffc6-4afb-8576-50f7bdce8428.jpg', NULL, NULL);
-INSERT INTO `coms_product` VALUES (68, 'asd', 39.00, NULL, '2021-09-05', 1, 100, 0, 'dd', NULL, 'a4ecd0f4-a47f-4fc7-af31-030998308c54.jpg', NULL, NULL);
-INSERT INTO `coms_product` VALUES (69, 'asd', 40.00, NULL, '2021-09-05', 1, 100, 0, 'dd', NULL, '32f2c955-ccf7-4285-9c88-2418cc60112c.jpg', NULL, NULL);
-INSERT INTO `coms_product` VALUES (70, 'asd', 41.00, NULL, '2021-09-05', 1, 100, 0, 'dd', NULL, 'a4ecd0f4-a47f-4fc7-af31-030998308c54.jpg', NULL, NULL);
-INSERT INTO `coms_product` VALUES (71, 'asd', 42.00, NULL, '2021-09-05', 1, 100, 0, 'dd', NULL, 'e4957851-0b1d-4a88-b33e-087e02d8cf22.jpg', NULL, NULL);
-INSERT INTO `coms_product` VALUES (72, 'asd', 43.00, NULL, '2021-09-05', 1, 100, 0, 'dd', NULL, 'a4ecd0f4-a47f-4fc7-af31-030998308c54.jpg', NULL, NULL);
-INSERT INTO `coms_product` VALUES (73, 'asd', 44.00, NULL, '2021-09-05', 1, 100, 0, 'dd', NULL, '32f2c955-ccf7-4285-9c88-2418cc60112c.jpg', NULL, NULL);
-INSERT INTO `coms_product` VALUES (74, 'asd', 45.00, NULL, '2021-09-05', 1, 100, 0, 'dd', NULL, 'a4ecd0f4-a47f-4fc7-af31-030998308c54.jpg', NULL, NULL);
-INSERT INTO `coms_product` VALUES (75, 'asd', 46.00, NULL, '2021-09-05', 1, 100, 0, 'dd', NULL, '4a1ba5d8-ffc6-4afb-8576-50f7bdce8428.jpg', NULL, NULL);
-INSERT INTO `coms_product` VALUES (76, 'asd', 47.00, NULL, '2021-09-05', 1, 100, 0, 'dd', NULL, 'a4ecd0f4-a47f-4fc7-af31-030998308c54.jpg', NULL, NULL);
-INSERT INTO `coms_product` VALUES (77, 'asd', 48.00, NULL, '2021-09-05', 1, 100, 0, 'dd', NULL, '32f2c955-ccf7-4285-9c88-2418cc60112c.jpg', NULL, NULL);
-INSERT INTO `coms_product` VALUES (78, 'asd', 49.00, NULL, '2021-09-05', 1, 100, 0, 'dd', NULL, 'a4ecd0f4-a47f-4fc7-af31-030998308c54.jpg', NULL, NULL);
-INSERT INTO `coms_product` VALUES (79, 'asd', 50.00, NULL, '2021-09-05', 1, 100, 0, 'dd', NULL, 'e4957851-0b1d-4a88-b33e-087e02d8cf22.jpg', NULL, NULL);
-INSERT INTO `coms_product` VALUES (80, 'asd', 51.00, NULL, '2021-09-05', 1, 100, 0, 'dd', NULL, 'a4ecd0f4-a47f-4fc7-af31-030998308c54.jpg', NULL, NULL);
-INSERT INTO `coms_product` VALUES (81, 'asd', 52.00, NULL, '2021-09-05', 1, 100, 0, 'dd', NULL, '32f2c955-ccf7-4285-9c88-2418cc60112c.jpg', NULL, NULL);
-INSERT INTO `coms_product` VALUES (82, 'asd', 53.00, NULL, '2021-09-05', 1, 100, 0, 'dd', NULL, 'a4ecd0f4-a47f-4fc7-af31-030998308c54.jpg', NULL, NULL);
-INSERT INTO `coms_product` VALUES (83, 'asd', 54.00, NULL, '2021-09-05', 1, 100, 0, 'dd', NULL, '4a1ba5d8-ffc6-4afb-8576-50f7bdce8428.jpg', NULL, NULL);
-INSERT INTO `coms_product` VALUES (84, 'asd', 55.00, NULL, '2021-09-05', 1, 100, 0, 'dd', NULL, 'a4ecd0f4-a47f-4fc7-af31-030998308c54.jpg', NULL, NULL);
-INSERT INTO `coms_product` VALUES (85, 'asd', 56.00, NULL, '2021-09-05', 1, 100, 0, 'dd', NULL, '32f2c955-ccf7-4285-9c88-2418cc60112c.jpg', NULL, NULL);
-INSERT INTO `coms_product` VALUES (86, 'asd', 57.00, NULL, '2021-09-05', 1, 100, 0, 'dd', NULL, 'a4ecd0f4-a47f-4fc7-af31-030998308c54.jpg', NULL, NULL);
-INSERT INTO `coms_product` VALUES (87, 'asd', 58.00, NULL, '2021-09-05', 1, 100, 0, 'dd', NULL, 'e4957851-0b1d-4a88-b33e-087e02d8cf22.jpg', NULL, NULL);
-INSERT INTO `coms_product` VALUES (88, 'asd', 59.00, NULL, '2021-09-05', 1, 100, 0, 'dd', NULL, 'a4ecd0f4-a47f-4fc7-af31-030998308c54.jpg', NULL, NULL);
-INSERT INTO `coms_product` VALUES (89, 'asd', 60.00, NULL, '2021-09-05', 1, 100, 0, 'dd', NULL, '32f2c955-ccf7-4285-9c88-2418cc60112c.jpg', NULL, NULL);
-INSERT INTO `coms_product` VALUES (90, 'asd', 61.00, NULL, '2021-09-05', 1, 100, 0, 'dd', NULL, 'a4ecd0f4-a47f-4fc7-af31-030998308c54.jpg', NULL, NULL);
-INSERT INTO `coms_product` VALUES (91, 'asd', 62.00, NULL, '2021-09-05', 1, 100, 0, 'dd', NULL, '4a1ba5d8-ffc6-4afb-8576-50f7bdce8428.jpg', NULL, NULL);
-INSERT INTO `coms_product` VALUES (92, 'asd', 63.00, NULL, '2021-09-05', 1, 100, 0, 'dd', NULL, 'a4ecd0f4-a47f-4fc7-af31-030998308c54.jpg', NULL, NULL);
-INSERT INTO `coms_product` VALUES (93, 'asd', 64.00, NULL, '2021-09-05', 1, 100, 0, 'dd', NULL, '32f2c955-ccf7-4285-9c88-2418cc60112c.jpg', NULL, NULL);
-INSERT INTO `coms_product` VALUES (94, 'asd', 65.00, NULL, '2021-09-05', 1, 100, 0, 'dd', NULL, 'a4ecd0f4-a47f-4fc7-af31-030998308c54.jpg', NULL, NULL);
-INSERT INTO `coms_product` VALUES (95, 'asd', 66.00, NULL, '2021-09-05', 1, 100, 0, 'dd', NULL, 'e4957851-0b1d-4a88-b33e-087e02d8cf22.jpg', NULL, NULL);
-INSERT INTO `coms_product` VALUES (96, 'asd', 67.00, NULL, '2021-09-05', 1, 100, 0, 'dd', NULL, 'a4ecd0f4-a47f-4fc7-af31-030998308c54.jpg', NULL, NULL);
-INSERT INTO `coms_product` VALUES (97, 'asd', 68.00, NULL, '2021-09-05', 1, 100, 0, 'dd', NULL, '32f2c955-ccf7-4285-9c88-2418cc60112c.jpg', NULL, NULL);
-INSERT INTO `coms_product` VALUES (98, 'asd', 69.00, NULL, '2021-09-05', 1, 100, 0, 'dd', NULL, 'a4ecd0f4-a47f-4fc7-af31-030998308c54.jpg', NULL, NULL);
-INSERT INTO `coms_product` VALUES (99, 'asd', 70.00, NULL, '2021-09-05', 1, 100, 0, 'dd', NULL, '4a1ba5d8-ffc6-4afb-8576-50f7bdce8428.jpg', NULL, NULL);
-INSERT INTO `coms_product` VALUES (100, 'asd', 71.00, NULL, '2021-09-05', 1, 100, 0, 'dd', NULL, 'a4ecd0f4-a47f-4fc7-af31-030998308c54.jpg', NULL, NULL);
 
 -- ----------------------------
 -- Table structure for coms_stall
@@ -728,7 +646,7 @@ CREATE TABLE `coms_sup_category`  (
   `sup_id` int NOT NULL,
   `cate_l1_id` int NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 96 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 131 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of coms_sup_category
@@ -791,15 +709,6 @@ INSERT INTO `coms_sup_category` VALUES (83, 42, 7, 41);
 INSERT INTO `coms_sup_category` VALUES (84, 43, 7, 41);
 INSERT INTO `coms_sup_category` VALUES (85, 44, 7, 41);
 INSERT INTO `coms_sup_category` VALUES (86, 49, 7, 41);
-INSERT INTO `coms_sup_category` VALUES (87, 28, 19, 8);
-INSERT INTO `coms_sup_category` VALUES (88, 29, 19, 8);
-INSERT INTO `coms_sup_category` VALUES (89, 30, 19, 8);
-INSERT INTO `coms_sup_category` VALUES (90, 31, 19, 8);
-INSERT INTO `coms_sup_category` VALUES (91, 32, 19, 8);
-INSERT INTO `coms_sup_category` VALUES (92, 33, 19, 8);
-INSERT INTO `coms_sup_category` VALUES (93, 34, 19, 8);
-INSERT INTO `coms_sup_category` VALUES (94, 35, 19, 8);
-INSERT INTO `coms_sup_category` VALUES (95, 36, 19, 8);
 INSERT INTO `coms_sup_category` VALUES (96, 23, 8, 4);
 INSERT INTO `coms_sup_category` VALUES (97, 24, 8, 4);
 INSERT INTO `coms_sup_category` VALUES (98, 25, 8, 4);
@@ -809,6 +718,44 @@ INSERT INTO `coms_sup_category` VALUES (101, 42, 8, 41);
 INSERT INTO `coms_sup_category` VALUES (102, 43, 8, 41);
 INSERT INTO `coms_sup_category` VALUES (103, 44, 8, 41);
 INSERT INTO `coms_sup_category` VALUES (104, 49, 8, 41);
+INSERT INTO `coms_sup_category` VALUES (118, 37, 6, 7);
+INSERT INTO `coms_sup_category` VALUES (119, 38, 6, 7);
+INSERT INTO `coms_sup_category` VALUES (120, 39, 6, 7);
+INSERT INTO `coms_sup_category` VALUES (121, 40, 6, 7);
+INSERT INTO `coms_sup_category` VALUES (122, 28, 6, 8);
+INSERT INTO `coms_sup_category` VALUES (123, 29, 6, 8);
+INSERT INTO `coms_sup_category` VALUES (124, 30, 6, 8);
+INSERT INTO `coms_sup_category` VALUES (125, 31, 6, 8);
+INSERT INTO `coms_sup_category` VALUES (126, 32, 6, 8);
+INSERT INTO `coms_sup_category` VALUES (127, 33, 6, 8);
+INSERT INTO `coms_sup_category` VALUES (128, 34, 6, 8);
+INSERT INTO `coms_sup_category` VALUES (129, 35, 6, 8);
+INSERT INTO `coms_sup_category` VALUES (130, 36, 6, 8);
+INSERT INTO `coms_sup_category` VALUES (161, 15, 19, 6);
+INSERT INTO `coms_sup_category` VALUES (162, 16, 19, 6);
+INSERT INTO `coms_sup_category` VALUES (163, 17, 19, 6);
+INSERT INTO `coms_sup_category` VALUES (164, 18, 19, 6);
+INSERT INTO `coms_sup_category` VALUES (165, 19, 19, 6);
+INSERT INTO `coms_sup_category` VALUES (166, 20, 19, 6);
+INSERT INTO `coms_sup_category` VALUES (167, 21, 19, 6);
+INSERT INTO `coms_sup_category` VALUES (168, 22, 19, 6);
+INSERT INTO `coms_sup_category` VALUES (169, 37, 19, 7);
+INSERT INTO `coms_sup_category` VALUES (170, 38, 19, 7);
+INSERT INTO `coms_sup_category` VALUES (171, 39, 19, 7);
+INSERT INTO `coms_sup_category` VALUES (172, 40, 19, 7);
+INSERT INTO `coms_sup_category` VALUES (173, 28, 19, 8);
+INSERT INTO `coms_sup_category` VALUES (174, 29, 19, 8);
+INSERT INTO `coms_sup_category` VALUES (175, 30, 19, 8);
+INSERT INTO `coms_sup_category` VALUES (176, 31, 19, 8);
+INSERT INTO `coms_sup_category` VALUES (177, 32, 19, 8);
+INSERT INTO `coms_sup_category` VALUES (178, 33, 19, 8);
+INSERT INTO `coms_sup_category` VALUES (179, 34, 19, 8);
+INSERT INTO `coms_sup_category` VALUES (180, 35, 19, 8);
+INSERT INTO `coms_sup_category` VALUES (181, 36, 19, 8);
+INSERT INTO `coms_sup_category` VALUES (182, 42, 19, 41);
+INSERT INTO `coms_sup_category` VALUES (183, 43, 19, 41);
+INSERT INTO `coms_sup_category` VALUES (184, 44, 19, 41);
+INSERT INTO `coms_sup_category` VALUES (185, 49, 19, 41);
 
 -- ----------------------------
 -- Table structure for coms_supplier
@@ -846,46 +793,6 @@ INSERT INTO `coms_supplier` VALUES (15, '测试供应商3', '12345678', '1362691
 INSERT INTO `coms_supplier` VALUES (17, '测试供应商4', '12345678', '13282466626', '北京市', 1, '2021-08-21 22:54:22', '2021-08-21 22:54:22');
 INSERT INTO `coms_supplier` VALUES (18, '测试供应商5', '12345678', '13503297689', '北京市', 1, '2021-08-21 22:54:31', '2021-08-21 22:54:31');
 INSERT INTO `coms_supplier` VALUES (19, '测试供应商6', '12345678', '13370825333', '北京市', 1, '2021-08-21 22:55:06', '2021-08-21 22:55:06');
-
--- ----------------------------
--- Table structure for user
--- ----------------------------
-DROP TABLE IF EXISTS `user`;
-CREATE TABLE `user`  (
-  `id` int NOT NULL,
-  `name` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `course` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `score` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL
-) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
-
--- ----------------------------
--- Records of user
--- ----------------------------
-INSERT INTO `user` VALUES (1, '朱元璋', '语文', '60');
-INSERT INTO `user` VALUES (2, '朱元璋', '数学', '70');
-INSERT INTO `user` VALUES (3, '朱元璋', '英语', '80');
-INSERT INTO `user` VALUES (4, '秦始皇', '语文', '90');
-INSERT INTO `user` VALUES (5, '秦始皇', '数学', '100');
-INSERT INTO `user` VALUES (1, '朱元璋', '语文', '60');
-INSERT INTO `user` VALUES (2, '朱元璋', '数学', '70');
-INSERT INTO `user` VALUES (3, '朱元璋', '英语', '80');
-INSERT INTO `user` VALUES (4, '秦始皇', '语文', '90');
-INSERT INTO `user` VALUES (5, '秦始皇', '数学', '100');
-INSERT INTO `user` VALUES (1, '朱元璋', '语文', '60');
-INSERT INTO `user` VALUES (2, '朱元璋', '数学', '70');
-INSERT INTO `user` VALUES (3, '朱元璋', '英语', '80');
-INSERT INTO `user` VALUES (4, '秦始皇', '语文', '90');
-INSERT INTO `user` VALUES (5, '秦始皇', '数学', '100');
-INSERT INTO `user` VALUES (1, '朱元璋', '语文', '60');
-INSERT INTO `user` VALUES (2, '朱元璋', '数学', '70');
-INSERT INTO `user` VALUES (3, '朱元璋', '英语', '80');
-INSERT INTO `user` VALUES (4, '秦始皇', '语文', '90');
-INSERT INTO `user` VALUES (5, '秦始皇', '数学', '100');
-INSERT INTO `user` VALUES (1, '朱元璋', '语文', '60');
-INSERT INTO `user` VALUES (2, '朱元璋', '数学', '70');
-INSERT INTO `user` VALUES (3, '朱元璋', '英语', '80');
-INSERT INTO `user` VALUES (4, '秦始皇', '语文', '90');
-INSERT INTO `user` VALUES (5, '秦始皇', '数学', '100');
 
 -- ----------------------------
 -- View structure for orderitemview
