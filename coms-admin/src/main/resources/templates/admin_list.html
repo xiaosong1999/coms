@@ -306,10 +306,14 @@
   function edit(obj){
     $("#admin_id").val("");
     $("#admin_username").val("");
-    $("#admin_password").val("");
+    $("#admin_password").val("********");
     $("#admin_name").val("");
     $("#admin_type").val("");
 
+
+    document.getElementById("admin_password").addEventListener("blur", function(){ admin_password.setAttribute("type","password")} );
+    document.getElementById("admin_password").addEventListener("focus", function(){ $('#admin_password').val(admin.password);} );
+    document.getElementById("admin_password").addEventListener("focus", function(){ admin_password.setAttribute("type","text")} );
 
 
     var adminData = $(obj).val();
@@ -340,6 +344,9 @@
       window.location.href = url;
     },reflushTime)
   }
+
+
+
 /*  function remove(adminId,pageNum,pageSize){
 
     console.log("adminId:"+adminId+";pageNum:"+pageNum+";pageSize:"+pageSize);
@@ -383,6 +390,9 @@
   }*/
 
 $(function(){
+
+
+
 
   $('#main_div').addClass("fadein");
   setTimeout(() => {

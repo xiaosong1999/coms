@@ -333,7 +333,12 @@
         $("#stall_id").val("");
         $("#stall_name").val("");
         $("#stall_phone").val("");
-        $("#stall_password").val("");
+        $("#stall_password").val("********");
+
+        document.getElementById("stall_password").addEventListener("blur", function(){ stall_password.setAttribute("type","password")} );
+        document.getElementById("stall_password").addEventListener("focus", function(){ $('#admin_password').val(stall.password);} );
+        document.getElementById("stall_password").addEventListener("focus", function(){ stall_password.setAttribute("type","text")} );
+
         var stallData = $(obj).val();
         var arr = ['createTime', 'updateTime'];
         // var replaceAttrsJson = {'id':'编号','icon':'图标'};
@@ -363,39 +368,7 @@
         }, reflushTime)
     }
 
-/*  删除方法废弃禁止使用
-    function remove(stallId, pageNum, pageSize) {
-        console.log("stallId:" + stallId + ";pageNum:" + pageNum + ";pageSize:" + pageSize);
-        if (pageSize == 1 && pageNum != 1) {
-            pageNum -= 1;
-        }
-        // 假设ajax提交操作
-        $.ajax({
-            type: "get",//方法类型
-            dataType: "json",//服务器返回的数据类型
-            url: "/admin/member/removeStall?stallId=" + stallId,//控制器url
-            success: function (result) {
-                console.log(result);//测试是否有数据
-                if (result.errno == 0) {//200正确
-                    window.location.href = '/admin/member/stallList?pageNum=' + pageNum;//成功后跳转到某界面
-                } else {
-                    // 假设ajax提交操作
-                    setTimeout(function () {
-                        lightyear.notify(result.errmsg, 'danger', 100);
-                    }, 1e3)
-                }
-            },
-            error: function (err) {
-                // console.log("err"+err);//测试是否有数据
-                // $("#errmsg").text(err.errmsg);
-                setTimeout(function () {
-                    lightyear.notify('服务器错误，请稍后尝试~', 'danger', 100);
-                }, 1e3)
-            }
-        });
 
-    }
-*/
 
     $(function () {
 

@@ -333,7 +333,11 @@
     $("#sup_id").val("");
     $("#sup_name").val("");
     $("#sup_phone").val("");
-    $("#sup_password").val("");
+    $("#sup_password").val("********");
+    document.getElementById("sup_password").addEventListener("blur", function(){ sup_password.setAttribute("type","password")} );
+    document.getElementById("sup_password").addEventListener("focus", function(){ $('#sup_password').val(sup.password);} );
+    document.getElementById("sup_password").addEventListener("focus", function(){ sup_password.setAttribute("type","text")} );
+
     $("#sup_address").val("");
     var supData = $(obj).val();
     var arr = ['createTime','updateTime'];
