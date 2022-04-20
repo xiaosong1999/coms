@@ -5,3 +5,12 @@
 .idea
 /coms-admin/src/main/resources/static/export/
 /coms-admin/src/main/resources/static/upload/
+/coms-admin/coms-admin.iml
+/coms-all/coms-all.iml
+/coms-db/coms-db.iml
+/coms-wx/coms-wx.iml
+/META-INF/MANIFEST.MF
+/coms-admin/src/main/resources/rebel.xml
+/coms-all/src/main/resources/rebel.xml
+/coms-db/src/main/resources/rebel.xml
+/coms-wx/src/main/resources/rebel.xml

@@ -213,7 +213,7 @@
                           <tr>
                             <th>管理员ID</th>
                             <th>管理员名字</th>
-                            <th>密码</th>
+<!--                            <th>密码</th>-->
                             <th>昵称</th>
                             <th>类型</th>
                             <th>操作</th>
@@ -223,7 +223,7 @@
                             <tr th:each="admin:${pageInfo.list}">
                               <td th:text="${admin.id}"></td>
                               <td th:text="${admin.username}"></td>
-                              <td>**********</td>
+<!--                              <td>**********</td>-->
                               <td th:text="${admin.name}"></td>
                               <td th:class="type" th:text="${admin.type==1?'超级管理员':'管理员'}" id="type"></td>
                               <td>

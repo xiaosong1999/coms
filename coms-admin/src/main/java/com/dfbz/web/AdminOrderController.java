@@ -245,10 +245,11 @@ public class AdminOrderController {
         row.createCell(0).setCellValue("序号");
         row.createCell(1).setCellValue("商品名");
         row.createCell(2).setCellValue("数量");
-        row.createCell(3).setCellValue("生产日期");
-        row.createCell(4).setCellValue("保质期");
-        row.createCell(5).setCellValue("品牌");
-        row.createCell(6).setCellValue("供货商");
+        row.createCell(3).setCellValue("单价");
+        row.createCell(4).setCellValue("生产日期");
+        row.createCell(5).setCellValue("保质期");
+        row.createCell(6).setCellValue("品牌");
+        row.createCell(7).setCellValue("供货商");
         ComsSupplier supplier = supplierService.findById(supId);
         Integer i = 1;
         for (ComsOrderItem items : comsOrderItems) {
@@ -258,10 +259,11 @@ public class AdminOrderController {
             newRow.createCell(0).setCellValue(i);
             newRow.createCell(1).setCellValue(items.getProdName());
             newRow.createCell(2).setCellValue(items.getNum());
-            newRow.createCell(3).setCellValue(products.getPd().toString());
-            newRow.createCell(4).setCellValue(products.getFd());
-            newRow.createCell(5).setCellValue(products.getBrand());
-            newRow.createCell(6).setCellValue(supplier.getName());
+            newRow.createCell(3).setCellValue(items.getCurrentMoney().toString());
+            newRow.createCell(4).setCellValue(products.getPd().toString());
+            newRow.createCell(5).setCellValue(products.getFd());
+            newRow.createCell(6).setCellValue(products.getBrand());
+            newRow.createCell(7).setCellValue(supplier.getName());
             i++;
         }
         FileOutputStream out = new FileOutputStream(filePath);

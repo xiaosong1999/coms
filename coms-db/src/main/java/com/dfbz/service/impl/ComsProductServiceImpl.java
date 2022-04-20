@@ -116,6 +116,7 @@ public class ComsProductServiceImpl implements ComsProductService {
     /**
      * 根据name匹配模糊查询
      */
+    @Override
     public List<ComsProduct> queryProductByName(String name) {
         ComsProductExample productExample = new ComsProductExample();
         productExample.or(productExample.createCriteria().andNameLike('%' + name + '%'));
